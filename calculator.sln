@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calculator", "calculator\calculator.csproj", "{DC51169F-38DF-4AEF-B051-E1E7B5BE0DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console-playground", "console-playground\console-playground.csproj", "{FCB0EECC-AAD0-4498-BD96-EDA648E26997}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC51169F-38DF-4AEF-B051-E1E7B5BE0DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC51169F-38DF-4AEF-B051-E1E7B5BE0DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC51169F-38DF-4AEF-B051-E1E7B5BE0DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC51169F-38DF-4AEF-B051-E1E7B5BE0DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB0EECC-AAD0-4498-BD96-EDA648E26997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB0EECC-AAD0-4498-BD96-EDA648E26997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB0EECC-AAD0-4498-BD96-EDA648E26997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB0EECC-AAD0-4498-BD96-EDA648E26997}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

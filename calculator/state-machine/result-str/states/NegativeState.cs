@@ -32,11 +32,6 @@ public class NegativeState : ResultStrState
         ((ResultStrStateMachine)_stateMachine).ToPreviousState();
     }
 
-    public override void ApplyCleanResultStr()
-    {
-        _stateMachine.ChangeState(new InitState(_stateMachine));
-    }
-
     /// <summary>
     /// remove - and to positive state
     /// </summary>

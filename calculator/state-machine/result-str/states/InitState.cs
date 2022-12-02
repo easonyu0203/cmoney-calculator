@@ -23,11 +23,7 @@ public class InitState : ResultStrState
     public override void ApplyDeleteResultStrAction()
     {
     }
-
-    public override void ApplyCleanResultStr()
-    {
-    }
-
+    
     public override void ApplySignAction()
     {
     }

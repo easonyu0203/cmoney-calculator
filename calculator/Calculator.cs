@@ -1,19 +1,7 @@
-﻿using calculator.state_machine.calculator;
+﻿using calculator.state_machine.expression;
 using calculator.state_machine.result_str;
 
 namespace calculator;
-
-public class CalculatorData
-{
-    public string ResultStr;
-    public string EquationStr;
-
-    public CalculatorData(string resultStr, string equationStr)
-    {
-        ResultStr = resultStr;
-        EquationStr = equationStr;
-    }
-}
 
 public class Calculator : ICalculatorController, ICalculatorDisplay
 {
@@ -21,11 +9,15 @@ public class Calculator : ICalculatorController, ICalculatorDisplay
     public string EquationStr => "";
 
     private ResultStrStateMachine _resultStrStateMachine;
+    private ExpressionStateMachine _expressionStateMachine;
 
     public Calculator()
     {
         _resultStrStateMachine = new ResultStrStateMachine("0");
         _resultStrStateMachine.Init();
+
+        _expressionStateMachine = new ExpressionStateMachine();
+        _expressionStateMachine.Init();
     }
 
     public void ApplyZeroAction()
@@ -48,48 +40,54 @@ public class Calculator : ICalculatorController, ICalculatorDisplay
         _resultStrStateMachine.ApplyDeleteResultStrAction();
     }
 
-    public void ApplyCleanResultStr()
-    {
-        _resultStrStateMachine.ApplyCleanResultStr();
-    }
-
     public void ApplySignAction()
     {
         _resultStrStateMachine.ApplySignAction();
     }
 
+    public void ApplyCleanResultStr()
+    {
+        _resultStrStateMachine = new ResultStrStateMachine("0");
+    }
+
     public void ApplySqrtAction()
     {
-        
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyMultiplyAction()
     {
-        
+        _expressionStateMachine.ApplyNumberAction(_resultStrStateMachine.ResultValue);
+        _expressionStateMachine.ApplyMultiplyAction();
+
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyDivideAction()
     {
-        
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyPlusAction()
     {
+        _expressionStateMachine.ApplyNumberAction(_resultStrStateMachine.ResultValue);
+        _expressionStateMachine.ApplyPlusAction();
         
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyMinusAction()
     {
-        
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyEqualAction()
     {
-        
+        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
     }
 
     public void ApplyCleanAll()
     {
-        
+        _resultStrStateMachine = new ResultStrStateMachine("0");
     }
 }

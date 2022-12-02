@@ -3,8 +3,10 @@ using calculator.state_machine.result_str;
 
 namespace calculator;
 
-public class Calculator : ICalculatorController, ICalculatorDisplay
+public class Calculator : ICalculator
 {
+    public Action? UpdateEvent { get; set; }
+
     public string ResultStr => _resultStrStateMachine.ResultStr;
     public string EquationStr => "";
 
@@ -28,31 +30,37 @@ public class Calculator : ICalculatorController, ICalculatorDisplay
     public void ApplyNumberAction(int num)
     {
         _resultStrStateMachine.ApplyNumberAction(num);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyDecimalAction()
     {
         _resultStrStateMachine.ApplyDecimalAction();
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyDeleteResultStrAction()
     {
         _resultStrStateMachine.ApplyDeleteResultStrAction();
+        UpdateEvent?.Invoke();
     }
 
     public void ApplySignAction()
     {
         _resultStrStateMachine.ApplySignAction();
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyCleanResultStr()
     {
         _resultStrStateMachine = new ResultStrStateMachine("0");
+        UpdateEvent?.Invoke();
     }
 
     public void ApplySqrtAction()
     {
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyMultiplyAction()
@@ -61,11 +69,13 @@ public class Calculator : ICalculatorController, ICalculatorDisplay
         _expressionStateMachine.ApplyMultiplyAction();
 
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyDivideAction()
     {
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyPlusAction()
@@ -74,20 +84,24 @@ public class Calculator : ICalculatorController, ICalculatorDisplay
         _expressionStateMachine.ApplyPlusAction();
         
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyMinusAction()
     {
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyEqualAction()
     {
         _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyCleanAll()
     {
         _resultStrStateMachine = new ResultStrStateMachine("0");
+        UpdateEvent?.Invoke();
     }
 }

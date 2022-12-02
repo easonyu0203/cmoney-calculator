@@ -1,4 +1,6 @@
-﻿namespace winform_calculator
+﻿using winform_calculator.Buttons;
+
+namespace winform_calculator
 {
     partial class Form1
     {
@@ -30,30 +32,30 @@
         {
             this.EquationText = new System.Windows.Forms.TextBox();
             this.ResultText = new System.Windows.Forms.TextBox();
-            this.button111 = new System.Windows.Forms.Button();
-            this.CEButton = new System.Windows.Forms.Button();
-            this.CButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.DivideButton = new System.Windows.Forms.Button();
-            this.SqrtButton = new System.Windows.Forms.Button();
-            this.button711 = new System.Windows.Forms.Button();
-            this.button811 = new System.Windows.Forms.Button();
-            this.MultiplyButton = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.MinusButton = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.PlusButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.EqualButton = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.Button0 = new System.Windows.Forms.Button();
-            this.SignButton = new System.Windows.Forms.Button();
+            this.button111 = new Button();
+            this.CEButton = new Button();
+            this.CButton = new Button();
+            this.DeleteButton = new Button();
+            this.DivideButton = new Button();
+            this.SqrtButton = new Button();
+            this.button711 = new Button();
+            this.button811 = new Button();
+            this.MultiplyButton = new MyMultiplyButton();
+            this.button9 = new  MyButton9();
+            this.button8 = new  MyButton8();
+            this.button7 = new  MyButton7();
+            this.MinusButton = new  Button();
+            this.button6 = new  MyButton6();
+            this.button5 = new  MyButton5();
+            this.button4 = new  MyButton4();
+            this.PlusButton = new  MyPlusButton();
+            this.button3 = new  MyButton3();
+            this.button2 = new  MyButton2();     
+            this.button1 = new  MyButton1();
+            this.EqualButton = new  Button();
+            this.button22 = new Button();
+            this.Button0 = new  MyButton0();
+            this.SignButton = new Button();
             this.SuspendLayout();
             // 
             // EquationText
@@ -340,21 +342,21 @@
         private Button SqrtButton;
         private Button button711;
         private Button button811;
-        private Button MultiplyButton;
-        private Button button9;
-        private Button button8;
-        private Button button7;
+        private MyMultiplyButton MultiplyButton;
+        private MyButton9 button9;
+        private MyButton8 button8;
+        private MyButton7 button7;
         private Button MinusButton;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button PlusButton;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private MyButton6 button6;
+        private MyButton5 button5;
+        private MyButton4 button4;
+        private MyPlusButton PlusButton;
+        private MyButton3 button3;
+        private MyButton2 button2;
+        private MyButton1 button1;
         private Button EqualButton;
         private Button button22;
-        private Button Button0;
+        private MyButton0 Button0;
         private Button SignButton;
     }
 }

@@ -1,18 +1,27 @@
 using calculator;
+using winform_calculator.Buttons;
 
 namespace winform_calculator
 {
     public partial class Form1 : Form
     {
-        private ICalculatorController _calculatorController;
-        private ICalculatorDisplay _calculatorDisplay;
+        private ICalculator _calculator;
 
-        public Form1(ICalculatorController calculatorController, ICalculatorDisplay calculatorDisplay)
+        public Form1(ICalculator calculatorController)
         {
             InitializeComponent();
-            _calculatorController= calculatorController;
-            _calculatorDisplay= calculatorDisplay;  
-            
+            _calculator = calculatorController;
+
+            _calculator.UpdateEvent += () =>
+            {
+                ResultText.Text = _calculator.ResultStr;
+                EquationText.Text = _calculator.EquationStr;
+            };
+
+            Button0.Click += (o, e) =>
+            {
+                ((IMyButton)o).OnPress(_calculator);
+            };
         }
     }
 }

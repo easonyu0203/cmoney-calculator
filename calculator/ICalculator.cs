@@ -1,7 +1,12 @@
 namespace calculator;
 
-public interface ICalculatorController
+public interface ICalculator
 {
+    public Action UpdateEvent { get; set; }
+
+    public string ResultStr { get; }
+    public string EquationStr { get; }
+
     // number manipulation action
     public void ApplyZeroAction();
     public void ApplyNumberAction(int num);

@@ -2,9 +2,10 @@ namespace calculator;
 
 public interface ICalculator
 {
-    public Action UpdateEvent { get; set; }
+    public Action? UpdateEvent { get; set; }
 
     public string ResultStr { get; }
+    public decimal ResultValue { get; }
     public string EquationStr { get; }
 
     // number manipulation action

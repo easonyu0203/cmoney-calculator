@@ -29,22 +29,23 @@ public class ResultStrStateMachine: StateMachine
         ResultStrState state = HistoryStack.Pop();
         ChangeState(state);
     }
+
+    /// <summary>
+    /// reinit state machine but don't change the result string 
+    /// </summary>
+    /// <param name="placeHolder"></param>
+    public void ReInitWithPlaceHolder(string placeHolder)
+    {
+        ResultStr = placeHolder;
+        HistoryStack.Clear();
+        ChangeState(new InitState(this));
+    }
     
     protected override State GetInitState()
     {
         return new InitState(this);
     }
 
-    /// <summary>
-    /// update data after apply action, from state => state machine
-    /// </summary>
-    protected void StateSync()
-    {
-        ResultStrState currentResultStrState = CurrenResultSTrtState;
-        ResultStr = currentResultStrState.ResultStr;
-    }
-
-    
     // number manipulation action
     public void ApplyZeroAction()
     {
@@ -75,6 +76,15 @@ public class ResultStrStateMachine: StateMachine
     {
         CurrenResultSTrtState.ApplySignAction();
         StateSync();
+    }
+
+    /// <summary>
+    /// update data after apply action, from state => state machine
+    /// </summary>
+    private void StateSync()
+    {
+        ResultStrState currentResultStrState = CurrenResultSTrtState;
+        ResultStr = currentResultStrState.ResultStr;
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using calculator.state_machine.expression;
+﻿using calculator.EquationSystem;
+using calculator.state_machine;
 using calculator.state_machine.result_str;
 
 namespace calculator;
@@ -8,100 +9,114 @@ public class Calculator : ICalculator
     public Action? UpdateEvent { get; set; }
 
     public string ResultStr => _resultStrStateMachine.ResultStr;
-    public string EquationStr => "";
+    public decimal ResultValue => _resultStrStateMachine.ResultValue;
+    public string EquationStr => _equationStateMachine.Equation.ToString();
 
-    private ResultStrStateMachine _resultStrStateMachine;
-    private ExpressionStateMachine _expressionStateMachine;
+    /// <summary>
+    /// The state machine which handle result string change due to actions
+    /// </summary>
+    private readonly ResultStrStateMachine _resultStrStateMachine;
+
+    private EquationStateMachine _equationStateMachine;
+
 
     public Calculator()
     {
+        // init result string state machine
         _resultStrStateMachine = new ResultStrStateMachine("0");
         _resultStrStateMachine.Init();
-
-        _expressionStateMachine = new ExpressionStateMachine();
-        _expressionStateMachine.Init();
+        // init equation state machine
+        _equationStateMachine = new EquationStateMachine(this);
+        _equationStateMachine.Init();       
     }
 
     public void ApplyZeroAction()
     {
+        _equationStateMachine.ApplyZeroAction();
         _resultStrStateMachine.ApplyZeroAction();
     }
 
     public void ApplyNumberAction(int num)
     {
+        _equationStateMachine.ApplyNumberAction(num);
         _resultStrStateMachine.ApplyNumberAction(num);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyDecimalAction()
     {
+        _equationStateMachine.ApplyDecimalAction();
         _resultStrStateMachine.ApplyDecimalAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplyDeleteResultStrAction()
     {
+        _equationStateMachine.ApplyDeleteResultStrAction();
         _resultStrStateMachine.ApplyDeleteResultStrAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplySignAction()
     {
+        _equationStateMachine.ApplySignAction();
         _resultStrStateMachine.ApplySignAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplyCleanResultStr()
     {
-        _resultStrStateMachine = new ResultStrStateMachine("0");
+        _equationStateMachine.ApplyCleanResultStr();
+        _resultStrStateMachine.ReInitWithPlaceHolder("0");
         UpdateEvent?.Invoke();
     }
 
     public void ApplySqrtAction()
     {
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        _equationStateMachine.ApplySqrtAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyMultiplyAction()
     {
-        _expressionStateMachine.ApplyNumberAction(_resultStrStateMachine.ResultValue);
-        _expressionStateMachine.ApplyMultiplyAction();
-
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        _equationStateMachine.ApplyMultiplyAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyDivideAction()
     {
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        _equationStateMachine.ApplyDivideAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyPlusAction()
     {
-        _expressionStateMachine.ApplyNumberAction(_resultStrStateMachine.ResultValue);
-        _expressionStateMachine.ApplyPlusAction();
-        
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        _equationStateMachine.ApplyPlusAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyMinusAction()
     {
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        _equationStateMachine.ApplyMinusAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyEqualAction()
     {
-        _resultStrStateMachine = new ResultStrStateMachine(_resultStrStateMachine.ResultStr);
+        decimal resultValue = _equationStateMachine.ApplyEqualAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder($"{resultValue}");
         UpdateEvent?.Invoke();
     }
 
     public void ApplyCleanAll()
     {
-        _resultStrStateMachine = new ResultStrStateMachine("0");
+        _equationStateMachine.ApplyCleanAll();
+        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
         UpdateEvent?.Invoke();
     }
 }

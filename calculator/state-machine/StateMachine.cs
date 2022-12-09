@@ -22,7 +22,7 @@ public abstract class StateMachine
     public void Init()
     {
         CurrentState = GetInitState();
-        ChangeState(CurrentState);
+        StateChangedEvent?.Invoke(CurrentState);
     }
 
     /// <summary>
@@ -31,6 +31,7 @@ public abstract class StateMachine
     /// <param name="newState"></param>
     public void ChangeState(State newState)
     {
+        CurrentState.OnStateLeave();
         CurrentState = newState;
         StateChangedEvent?.Invoke(CurrentState);
     }

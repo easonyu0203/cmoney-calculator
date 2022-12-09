@@ -18,4 +18,5 @@ public abstract class ResultStrState : State
     public abstract void ApplySignAction();
     
     public abstract void ApplyDeleteResultStrAction();
+
 }

@@ -8,7 +8,7 @@ public class MinusOperator : BinaryOperator
     /// <returns></returns>
     public override decimal Calculate()
     {
-        decimal value = LeftOperand.Value - RightOperand.Value;
+        decimal value = LeftUnaryExpression.Value - RightUnaryExpression.Value;
         return (value);
     }
 

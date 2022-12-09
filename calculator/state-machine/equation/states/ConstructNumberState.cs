@@ -2,24 +2,70 @@ using calculator.EquationSystem;
 
 namespace calculator.state_machine.equation.states;
 
-public class ConstructNumberState: EquationState
+public class ConstructNumberState : EquationState
 {
     private EquationStateMachine _equationStateMachine;
-    
+    private UnaryExpression _unaryExpression;
+
     public ConstructNumberState(EquationStateMachine stateMachine) : base(stateMachine)
     {
         _equationStateMachine = stateMachine;
+        _unaryExpression = new UnaryExpression(111);
     }
 
+    /// <summary>
+    /// add unary expression to equation
+    /// </summary>
     public override void OnStateLeave()
     {
-        _equationStateMachine.Equation.AddOperand(new Operand(_equationStateMachine.ResultValue));
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
+        _equationStateMachine.Equation.AddOperand(_unaryExpression);
     }
 
+    /// <summary>
+    ///  clear unary operator if user try to build new number
+    /// </summary>
+    public override void ApplyZeroAction()
+    {
+        _unaryExpression.UnaryOperators.Clear();
+        _equationStateMachine.Equation.SetSuffixStr("");
+    }
 
-    // TODO: What should this do?
+    /// <summary>
+    ///  clear unary operator if user try to build new number
+    /// </summary>
+    public override void ApplyNumberAction(int num)
+    {
+        _unaryExpression.UnaryOperators.Clear();
+        _equationStateMachine.Equation.SetSuffixStr("");
+    }
+
+    /// <summary>
+    ///  clear unary operator if user try to build new number
+    /// </summary>
+    public override void ApplyDecimalAction()
+    {
+        _unaryExpression.UnaryOperators.Clear();
+        _equationStateMachine.Equation.SetSuffixStr("");
+    }
+
+    /// <summary>
+    ///  clear unary operator if user try to build new number
+    /// </summary>
+    public override void ApplySignAction()
+    {
+        _unaryExpression.UnaryOperators.Clear();
+        _equationStateMachine.Equation.SetSuffixStr("");
+    }
+
+    /// <summary>
+    /// add sqrt operator to unary operator list
+    /// </summary>
     public override void ApplySqrtAction()
     {
+        _unaryExpression.UnaryOperators.Add(new SqrtOperator());
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
+        _equationStateMachine.Equation.SetSuffixStr(_unaryExpression.ToString());
     }
 
     /// <summary>
@@ -34,13 +80,15 @@ public class ConstructNumberState: EquationState
     public override void ApplyDivideAction()
     {
         _stateMachine.ChangeState(new ConstructBinaryOperatorState(_equationStateMachine));
-        _equationStateMachine.ApplyDivideAction();;
+        _equationStateMachine.ApplyDivideAction();
+        ;
     }
 
     public override void ApplyPlusAction()
     {
         _stateMachine.ChangeState(new ConstructBinaryOperatorState(_equationStateMachine));
-        _equationStateMachine.ApplyPlusAction();;
+        _equationStateMachine.ApplyPlusAction();
+        ;
     }
 
     public override void ApplyMinusAction()
@@ -48,16 +96,17 @@ public class ConstructNumberState: EquationState
         _stateMachine.ChangeState(new ConstructBinaryOperatorState(_equationStateMachine));
         _equationStateMachine.ApplyMinusAction();
     }
-    
+
+
     /// <summary>
     /// add an operand to equation and calculate result
     /// </summary>
     /// <returns></returns>
     public override decimal ApplyEqualAction()
     {
-        _equationStateMachine.Equation.AddOperand(new Operand(_equationStateMachine.ResultValue));
-        decimal resultValue = _equationStateMachine.Equation.Calculate();
         _equationStateMachine.ChangeState(new AfterEqualState(_equationStateMachine));
+        decimal resultValue = _equationStateMachine.Equation.Calculate();
+        _equationStateMachine.Equation.SetSuffixStr("=");
         return resultValue;
     }
 }

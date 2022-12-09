@@ -2,35 +2,29 @@ namespace calculator.EquationSystem;
 
 public abstract class BinaryOperator: ILinkable
 {
-    public Operand LeftOperand { get; private set; }
-    public Operand RightOperand { get; private set; }
+    public UnaryExpression LeftUnaryExpression { get; private set; }
+    public UnaryExpression RightUnaryExpression { get; private set; }
 
     public BinaryOperator()
     {
-        LeftOperand = null!;
-        RightOperand = null!;
+        LeftUnaryExpression = null!;
+        RightUnaryExpression = null!;
     }
 
     public abstract decimal Calculate();
 
     public void SetLeft(ILinkable operand)
     {
-        LeftOperand = (Operand)operand;
+        LeftUnaryExpression = (UnaryExpression)operand;
     }
 
     public void SetRight(ILinkable operand)
     {
-        RightOperand = (Operand)operand;
+        RightUnaryExpression = (UnaryExpression)operand;
     }
 
     public override string ToString()
     {
         return "[null operator]";
     }
-}
-
-public interface ILinkable
-{
-    public void SetLeft(ILinkable linkable);
-    public void SetRight(ILinkable linkable);
 }

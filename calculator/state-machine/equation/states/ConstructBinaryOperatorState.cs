@@ -74,9 +74,15 @@ public class ConstructBinaryOperatorState: EquationState
         _stateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
     }
 
-    // TODO: not sure what to do
+    public override void ApplySignAction()
+    {
+        _stateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
+    }
+    
     public override void ApplySqrtAction()
     {
+        _stateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
+        _equationStateMachine.ApplySqrtAction();
     }
 
     /// <summary>
@@ -85,14 +91,14 @@ public class ConstructBinaryOperatorState: EquationState
     /// <returns></returns>
     public override decimal ApplyEqualAction()
     {
-        // add operator
-        _addOperatorOnStateLeave.Invoke();
-        // add operand
-        _equationStateMachine.Equation.AddOperand(new Operand(_equationStateMachine.ResultValue));
-        // calculate
-        decimal resultValue = _equationStateMachine.Equation.Calculate();
         // change state
         _equationStateMachine.ChangeState(new AfterEqualState(_equationStateMachine));
+        _equationStateMachine.Equation.SetSuffixStr("=");
+        // add operand
+        _equationStateMachine.Equation.AddOperand(new UnaryExpression(_equationStateMachine.ResultValue));
+        // calculate
+        decimal resultValue = _equationStateMachine.Equation.Calculate();
+       
         return resultValue;
     }
 }

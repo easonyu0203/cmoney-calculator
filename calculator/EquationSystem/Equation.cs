@@ -7,7 +7,7 @@ public class Equation
     private List<BinaryOperator> _highBinaryOperator;
     private List<BinaryOperator> _lowBinaryOperators;
     private List<BinaryOperator> _allBinaryOperators;
-    private List<Operand> _operands;
+    private List<UnaryExpression> _operands;
     /// <summary>
     /// this is for output equation, we store all element in equation as an array
     /// </summary>
@@ -20,7 +20,7 @@ public class Equation
         _lowBinaryOperators = new List<BinaryOperator>();
         _allBinaryOperators = new List<BinaryOperator>();
         _elements = new List<ILinkable>();
-        _operands = new List<Operand>();
+        _operands = new List<UnaryExpression>();
         _suffixStr = "";
     }
 
@@ -29,10 +29,10 @@ public class Equation
         _suffixStr = str;
     }
 
-    public void AddOperand(Operand operand)
+    public void AddOperand(UnaryExpression unaryExpression)
     {
-        _operands.Add(operand);
-        _elements.Add(operand);
+        _operands.Add(unaryExpression);
+        _elements.Add(unaryExpression);
     }
 
     public void AddLowBinaryOperator(BinaryOperator lowBinaryOperator)
@@ -65,21 +65,21 @@ public class Equation
         }
         
         // calculate high, low Operators value
-        Operand resultOperand = new Operand(1111);
+        UnaryExpression resultUnaryExpression = new UnaryExpression(1111);
         foreach (List<BinaryOperator> binaryOperators in new []{_highBinaryOperator, _lowBinaryOperators})
         {
             foreach (BinaryOperator binaryOperator in binaryOperators)
             {
                 decimal value = binaryOperator.Calculate();
-                resultOperand = new Operand(value);
-                BinaryOperator? left = binaryOperator.LeftOperand.LeftBinaryOperator;
-                BinaryOperator? right = binaryOperator.RightOperand.RightBinaryOperator;
-                left?.SetRight(resultOperand);
-                right?.SetLeft(resultOperand);
+                resultUnaryExpression = new UnaryExpression(value);
+                BinaryOperator? left = binaryOperator.LeftUnaryExpression.LeftBinaryOperator;
+                BinaryOperator? right = binaryOperator.RightUnaryExpression.RightBinaryOperator;
+                left?.SetRight(resultUnaryExpression);
+                right?.SetLeft(resultUnaryExpression);
             }
         }
 
-        return resultOperand.Value;
+        return resultUnaryExpression.Value;
     }
 
     public override string ToString()

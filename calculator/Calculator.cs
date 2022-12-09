@@ -15,7 +15,7 @@ public class Calculator : ICalculator
     /// <summary>
     /// The state machine which handle result string change due to actions
     /// </summary>
-    private readonly ResultStrStateMachine _resultStrStateMachine;
+    private ResultStrStateMachine _resultStrStateMachine;
 
     private EquationStateMachine _equationStateMachine;
 
@@ -116,8 +116,12 @@ public class Calculator : ICalculator
 
     public void ApplyCleanAll()
     {
-        _equationStateMachine.ApplyCleanAll();
-        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
+        // init result string state machine
+        _resultStrStateMachine = new ResultStrStateMachine("0");
+        _resultStrStateMachine.Init();
+        // init equation state machine
+        _equationStateMachine = new EquationStateMachine(this);
+        _equationStateMachine.Init();  
         UpdateEvent?.Invoke();
     }
 }

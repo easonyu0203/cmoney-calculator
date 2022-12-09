@@ -33,7 +33,7 @@ calculator.ApplySqrtAction();
 // calculator.ApplyNumberAction(4);
 
 // calculator.ApplySignAction();
-calculator.ApplyEqualAction();
+// calculator.ApplyEqualAction();
 
 Console.WriteLine(calculator.EquationStr);
 Console.WriteLine(calculator.ResultStr);

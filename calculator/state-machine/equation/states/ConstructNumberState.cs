@@ -61,11 +61,12 @@ public class ConstructNumberState : EquationState
     /// <summary>
     /// add sqrt operator to unary operator list
     /// </summary>
-    public override void ApplySqrtAction()
+    public override decimal ApplySqrtAction()
     {
         _unaryExpression.UnaryOperators.Add(new SqrtOperator());
         _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _equationStateMachine.Equation.SetSuffixStr(_unaryExpression.ToString());
+        return _unaryExpression.Value;
     }
 
     /// <summary>
@@ -81,7 +82,6 @@ public class ConstructNumberState : EquationState
     {
         _stateMachine.ChangeState(new ConstructBinaryOperatorState(_equationStateMachine));
         _equationStateMachine.ApplyDivideAction();
-        ;
     }
 
     public override void ApplyPlusAction()

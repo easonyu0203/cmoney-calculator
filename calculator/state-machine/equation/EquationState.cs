@@ -28,8 +28,9 @@ public abstract class EquationState : State
     {
     }
 
-    public virtual void ApplySqrtAction()
+    public virtual decimal ApplySqrtAction()
     {
+        return 1111;
     }
 
     public virtual void ApplyMultiplyAction()

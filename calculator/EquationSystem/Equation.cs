@@ -65,7 +65,7 @@ public class Equation
         }
         
         // calculate high, low Operators value
-        UnaryExpression resultUnaryExpression = new UnaryExpression(1111);
+        UnaryExpression resultUnaryExpression = _operands[0];
         foreach (List<BinaryOperator> binaryOperators in new []{_highBinaryOperator, _lowBinaryOperators})
         {
             foreach (BinaryOperator binaryOperator in binaryOperators)

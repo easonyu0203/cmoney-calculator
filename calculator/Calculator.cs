@@ -74,8 +74,8 @@ public class Calculator : ICalculator
 
     public void ApplySqrtAction()
     {
-        _equationStateMachine.ApplySqrtAction();
-        _resultStrStateMachine.ReInitWithPlaceHolder(_resultStrStateMachine.ResultStr);
+        decimal value = _equationStateMachine.ApplySqrtAction();
+        _resultStrStateMachine.ReInitWithPlaceHolder($"{value}");
         UpdateEvent?.Invoke();
     }
 

@@ -69,9 +69,9 @@ public class EquationStateMachine : StateMachine
         CurrentEquationState.ApplySignAction();
     }
 
-    public void ApplySqrtAction()
+    public decimal ApplySqrtAction()
     {
-        CurrentEquationState.ApplySqrtAction();
+        return CurrentEquationState.ApplySqrtAction();
     }
 
     public void ApplyMultiplyAction()

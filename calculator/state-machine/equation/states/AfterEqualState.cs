@@ -36,10 +36,10 @@ public class AfterEqualState:EquationState
         _equationStateMachine.ApplyDecimalAction();
     }
 
-    public override void ApplySqrtAction()
+    public override decimal ApplySqrtAction()
     {
         _equationStateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
-        _equationStateMachine.ApplySqrtAction();
+        return _equationStateMachine.ApplySqrtAction();
     }
 
     public override void ApplyMultiplyAction()

@@ -79,10 +79,10 @@ public class ConstructBinaryOperatorState: EquationState
         _stateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
     }
     
-    public override void ApplySqrtAction()
+    public override decimal ApplySqrtAction()
     {
         _stateMachine.ChangeState(new ConstructNumberState(_equationStateMachine));
-        _equationStateMachine.ApplySqrtAction();
+        return _equationStateMachine.ApplySqrtAction();
     }
 
     /// <summary>

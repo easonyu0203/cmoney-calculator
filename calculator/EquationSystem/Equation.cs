@@ -70,7 +70,9 @@ public class Equation
         {
             foreach (BinaryOperator binaryOperator in binaryOperators)
             {
+                // perform this operation
                 decimal value = binaryOperator.Calculate();
+                // get new unary expression
                 resultUnaryExpression = new UnaryExpression(value);
                 BinaryOperator? left = binaryOperator.LeftUnaryExpression.LeftBinaryOperator;
                 BinaryOperator? right = binaryOperator.RightUnaryExpression.RightBinaryOperator;

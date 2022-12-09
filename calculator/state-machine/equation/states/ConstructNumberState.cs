@@ -10,7 +10,7 @@ public class ConstructNumberState : EquationState
     public ConstructNumberState(EquationStateMachine stateMachine) : base(stateMachine)
     {
         _equationStateMachine = stateMachine;
-        _unaryExpression = new UnaryExpression(111);
+        _unaryExpression = new UnaryExpression(_equationStateMachine.ResultValue);
     }
 
     /// <summary>
@@ -67,7 +67,6 @@ public class ConstructNumberState : EquationState
     public override decimal ApplySqrtAction()
     {
         _unaryExpression.UnaryOperators.Add(new SqrtOperator());
-        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _equationStateMachine.Equation.SetSuffixStr(_unaryExpression.ToString());
         return _unaryExpression.Value;
     }

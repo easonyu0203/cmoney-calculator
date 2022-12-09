@@ -32,43 +32,43 @@ public class Calculator : ICalculator
 
     public void ApplyZeroAction()
     {
-        _equationStateMachine.ApplyZeroAction();
         _resultStrStateMachine.ApplyZeroAction();
+        _equationStateMachine.ApplyZeroAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplyNumberAction(int num)
     {
-        _equationStateMachine.ApplyNumberAction(num);
         _resultStrStateMachine.ApplyNumberAction(num);
+        _equationStateMachine.ApplyNumberAction(num);
         UpdateEvent?.Invoke();
     }
 
     public void ApplyDecimalAction()
     {
-        _equationStateMachine.ApplyDecimalAction();
         _resultStrStateMachine.ApplyDecimalAction();
+        _equationStateMachine.ApplyDecimalAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplyDeleteResultStrAction()
     {
-        _equationStateMachine.ApplyDeleteResultStrAction();
         _resultStrStateMachine.ApplyDeleteResultStrAction();
+        _equationStateMachine.ApplyDeleteResultStrAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplySignAction()
     {
-        _equationStateMachine.ApplySignAction();
         _resultStrStateMachine.ApplySignAction();
+        _equationStateMachine.ApplySignAction();
         UpdateEvent?.Invoke();
     }
 
     public void ApplyCleanResultStr()
     {
-        _equationStateMachine.ApplyCleanResultStr();
         _resultStrStateMachine.ReInitWithPlaceHolder("0");
+        _equationStateMachine.ApplyCleanResultStr();
         UpdateEvent?.Invoke();
     }
 

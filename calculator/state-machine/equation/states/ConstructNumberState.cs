@@ -18,7 +18,6 @@ public class ConstructNumberState : EquationState
     /// </summary>
     public override void OnStateLeave()
     {
-        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _equationStateMachine.Equation.AddOperand(_unaryExpression);
     }
 
@@ -27,6 +26,7 @@ public class ConstructNumberState : EquationState
     /// </summary>
     public override void ApplyZeroAction()
     {
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _unaryExpression.UnaryOperators.Clear();
         _equationStateMachine.Equation.SetSuffixStr("");
     }
@@ -36,6 +36,7 @@ public class ConstructNumberState : EquationState
     /// </summary>
     public override void ApplyNumberAction(int num)
     {
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _unaryExpression.UnaryOperators.Clear();
         _equationStateMachine.Equation.SetSuffixStr("");
     }
@@ -45,6 +46,7 @@ public class ConstructNumberState : EquationState
     /// </summary>
     public override void ApplyDecimalAction()
     {
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _unaryExpression.UnaryOperators.Clear();
         _equationStateMachine.Equation.SetSuffixStr("");
     }
@@ -54,6 +56,7 @@ public class ConstructNumberState : EquationState
     /// </summary>
     public override void ApplySignAction()
     {
+        _unaryExpression.RawNumber = _equationStateMachine.ResultValue;
         _unaryExpression.UnaryOperators.Clear();
         _equationStateMachine.Equation.SetSuffixStr("");
     }

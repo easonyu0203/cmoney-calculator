@@ -20,7 +20,7 @@ Calculator calculator = new Calculator();
 calculator.ApplyNumberAction(1);
 calculator.ApplyNumberAction(6);
 calculator.ApplySqrtAction();
-// calculator.ApplyPlusAction();
+calculator.ApplyPlusAction();
 // calculator.ApplyNumberAction(2);
 // calculator.ApplyPlusAction();
 // calculator.ApplyNumberAction(3);
@@ -31,7 +31,7 @@ calculator.ApplySqrtAction();
 // calculator.ApplySignAction();
 
 // calculator.ApplySignAction();
-// calculator.ApplyEqualAction();
+calculator.ApplyEqualAction();
 
 Console.WriteLine(calculator.EquationStr);
 Console.WriteLine(calculator.ResultStr);

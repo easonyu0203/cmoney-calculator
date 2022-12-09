@@ -103,5 +103,6 @@ public class EquationStateMachine : StateMachine
     public void ApplyCleanAll()
     {
         Equation = new Equation();
+        ChangeState(new ConstructNumberState(this));
     }
 }

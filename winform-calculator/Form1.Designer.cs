@@ -32,30 +32,30 @@ namespace winform_calculator
         {
             this.EquationText = new System.Windows.Forms.TextBox();
             this.ResultText = new System.Windows.Forms.TextBox();
-            this.button111 = new Button();
-            this.CEButton = new Button();
-            this.CButton = new Button();
-            this.DeleteButton = new Button();
-            this.DivideButton = new Button();
-            this.SqrtButton = new Button();
-            this.button711 = new Button();
-            this.button811 = new Button();
-            this.MultiplyButton = new MyMultiplyButton();
-            this.button9 = new  MyButton9();
-            this.button8 = new  MyButton8();
-            this.button7 = new  MyButton7();
-            this.MinusButton = new  Button();
-            this.button6 = new  MyButton6();
-            this.button5 = new  MyButton5();
-            this.button4 = new  MyButton4();
-            this.PlusButton = new  MyPlusButton();
-            this.button3 = new  MyButton3();
-            this.button2 = new  MyButton2();     
-            this.button1 = new  MyButton1();
-            this.EqualButton = new  Button();
-            this.button22 = new Button();
-            this.Button0 = new  MyButton0();
-            this.SignButton = new Button();
+            this.button111 = new System.Windows.Forms.Button();
+            this.CEButton = new winform_calculator.Buttons.MyCEButton();
+            this.CButton = new winform_calculator.Buttons.MyCButton();
+            this.DeleteButton = new winform_calculator.Buttons.MyDeleteButton();
+            this.DivideButton = new winform_calculator.Buttons.MyDivideButton();
+            this.SqrtButton = new winform_calculator.Buttons.MySqrtButton();
+            this.button711 = new System.Windows.Forms.Button();
+            this.button811 = new System.Windows.Forms.Button();
+            this.MultiplyButton = new winform_calculator.Buttons.MyMultiplyButton();
+            this.button9 = new winform_calculator.Buttons.MyButton9();
+            this.button8 = new winform_calculator.Buttons.MyButton8();
+            this.button7 = new winform_calculator.Buttons.MyButton7();
+            this.MinusButton = new winform_calculator.Buttons.MyMinusButton();
+            this.button6 = new winform_calculator.Buttons.MyButton6();
+            this.button5 = new winform_calculator.Buttons.MyButton5();
+            this.button4 = new winform_calculator.Buttons.MyButton4();
+            this.PlusButton = new winform_calculator.Buttons.MyPlusButton();
+            this.button3 = new winform_calculator.Buttons.MyButton3();
+            this.button2 = new winform_calculator.Buttons.MyButton2();
+            this.button1 = new winform_calculator.Buttons.MyButton1();
+            this.EqualButton = new winform_calculator.Buttons.MyEqualButton();
+            this.DecimalButton = new MyDecimalButton();
+            this.Button0 = new winform_calculator.Buttons.MyButton0();
+            this.SignButton = new winform_calculator.Buttons.MySignButton();
             this.SuspendLayout();
             // 
             // EquationText
@@ -264,14 +264,14 @@ namespace winform_calculator
             this.EqualButton.Text = "=";
             this.EqualButton.UseVisualStyleBackColor = true;
             // 
-            // button22
+            // DecimalButton
             // 
-            this.button22.Location = new System.Drawing.Point(208, 484);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(90, 62);
-            this.button22.TabIndex = 24;
-            this.button22.Text = ".";
-            this.button22.UseVisualStyleBackColor = true;
+            this.DecimalButton.Location = new System.Drawing.Point(208, 484);
+            this.DecimalButton.Name = "DecimalButton";
+            this.DecimalButton.Size = new System.Drawing.Size(90, 62);
+            this.DecimalButton.TabIndex = 24;
+            this.DecimalButton.Text = ".";
+            this.DecimalButton.UseVisualStyleBackColor = true;
             // 
             // Button0
             // 
@@ -297,7 +297,7 @@ namespace winform_calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 595);
             this.Controls.Add(this.EqualButton);
-            this.Controls.Add(this.button22);
+            this.Controls.Add(this.DecimalButton);
             this.Controls.Add(this.Button0);
             this.Controls.Add(this.SignButton);
             this.Controls.Add(this.PlusButton);
@@ -335,18 +335,18 @@ namespace winform_calculator
         private TextBox EquationText;
         private TextBox ResultText;
         private Button button111;
-        private Button CEButton;
-        private Button CButton;
-        private Button DeleteButton;
-        private Button DivideButton;
-        private Button SqrtButton;
+        private MyCEButton CEButton;
+        private MyCButton CButton;
+        private MyDeleteButton DeleteButton;
+        private MyDivideButton DivideButton;
+        private MySqrtButton SqrtButton;
         private Button button711;
         private Button button811;
         private MyMultiplyButton MultiplyButton;
         private MyButton9 button9;
         private MyButton8 button8;
         private MyButton7 button7;
-        private Button MinusButton;
+        private MyMinusButton MinusButton;
         private MyButton6 button6;
         private MyButton5 button5;
         private MyButton4 button4;
@@ -354,9 +354,9 @@ namespace winform_calculator
         private MyButton3 button3;
         private MyButton2 button2;
         private MyButton1 button1;
-        private Button EqualButton;
-        private Button button22;
+        private MyEqualButton EqualButton;
+        private MyDecimalButton DecimalButton;
         private MyButton0 Button0;
-        private Button SignButton;
+        private MySignButton SignButton;
     }
 }

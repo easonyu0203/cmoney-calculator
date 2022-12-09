@@ -28,7 +28,7 @@ public class ConstructBinaryOperatorState: EquationState
         {
             _equationStateMachine.Equation.AddHighBinaryOperator(new MultiplyOperator());
         };
-        _equationStateMachine.Equation.SetSuffixStr("X");
+        _equationStateMachine.Equation.SetSuffixStr("x");
     } 
 
     public override void ApplyDivideAction()

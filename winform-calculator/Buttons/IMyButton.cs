@@ -92,6 +92,30 @@ namespace winform_calculator.Buttons
         }
     }
 
+    public class MyDecimalButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyDecimalAction();
+        }
+    }
+
+    public class MySignButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplySignAction();
+        }
+    }
+
+    public class MySqrtButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplySqrtAction();
+        }
+    }
+
     public class MyPlusButton : Button, IMyButton
     {
         public void OnPress(ICalculator calculatorController)
@@ -99,11 +123,58 @@ namespace winform_calculator.Buttons
             calculatorController.ApplyPlusAction();
         }
     }
+    public class MyMinusButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyMinusAction();
+        }
+    }
     public class MyMultiplyButton : Button, IMyButton
     {
         public void OnPress(ICalculator calculatorController)
         {
             calculatorController.ApplyMultiplyAction();
+        }
+    }
+
+    public class MyDivideButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyDivideAction();
+        }
+    }
+
+    public class MyDeleteButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyDeleteResultStrAction();
+        }
+    }
+
+    public class MyEqualButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyEqualAction();
+        }
+    }
+
+    public class MyCEButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyCleanResultStr();
+        }
+    }
+
+    public class MyCButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyCleanAll();
         }
     }
 

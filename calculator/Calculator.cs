@@ -34,6 +34,7 @@ public class Calculator : ICalculator
     {
         _equationStateMachine.ApplyZeroAction();
         _resultStrStateMachine.ApplyZeroAction();
+        UpdateEvent?.Invoke();
     }
 
     public void ApplyNumberAction(int num)

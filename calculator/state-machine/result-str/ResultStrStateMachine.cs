@@ -5,7 +5,6 @@ namespace calculator.state_machine.result_str;
 public class ResultStrStateMachine: StateMachine
 {
     public string ResultStr { get; private set; }
-    public decimal ResultValue => Decimal.Parse(ResultStr);
 
     public readonly Stack<ResultStrState> HistoryStack;
 

@@ -35,6 +35,9 @@ public class Calculator : ICalculator
 
     public Calculator()
     {
+        ResultStr = "0";
+        EquationStr = "";
+        
         // init result string state machine
         _resultStrStateMachine = new ResultStrStateMachine("0");
         _resultStrStateMachine.Init();
@@ -42,8 +45,7 @@ public class Calculator : ICalculator
         _equationStateMachine = new EquationStateMachine(this);
         _equationStateMachine.Init();
 
-        ResultStr = "0";
-        EquationStr = "";
+       
     }
 
     public void ApplyZeroAction()

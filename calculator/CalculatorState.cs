@@ -1,6 +1,6 @@
 namespace calculator.state_machine.equation;
 
-public abstract class EquationState : State
+public abstract class CalculatorState : State
 {
     // number manipulation action
     public virtual void ApplyZeroAction()
@@ -28,9 +28,8 @@ public abstract class EquationState : State
     {
     }
 
-    public virtual decimal ApplySqrtAction()
+    public virtual void ApplySqrtAction()
     {
-        return 1111;
     }
 
     public virtual void ApplyMultiplyAction()
@@ -47,15 +46,15 @@ public abstract class EquationState : State
 
     public virtual void ApplyMinusAction()
     {
-    } 
+    }
 
-    public virtual decimal ApplyEqualAction()
-    {
-        return 0;
-    } 
+    public virtual void ApplyLeftParentheses(){}
+    public virtual void ApplyRightParentheses(){}
+    
+    public virtual void ApplyEqualAction(){}
     
 
-    protected EquationState(StateMachine stateMachine) : base(stateMachine)
+    protected CalculatorState(Calculator calculator) : base(calculator)
     {
     }
 }

@@ -31,7 +31,6 @@ public abstract class StateMachine
     /// <param name="newState"></param>
     public void ChangeState(State newState)
     {
-        CurrentState.OnStateLeave();
         CurrentState = newState;
         StateChangedEvent?.Invoke(CurrentState);
     }

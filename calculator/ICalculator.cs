@@ -5,8 +5,10 @@ public interface ICalculator
     public Action? UpdateEvent { get; set; }
 
     public string ResultStr { get; }
-    public decimal ResultValue { get; }
     public string EquationStr { get; }
+    public string PreOrderStr { get; }
+    public string InOrderStr { get; }
+    public string PostOrderStr { get; }
 
     // number manipulation action
     public void ApplyZeroAction();
@@ -23,6 +25,9 @@ public interface ICalculator
     public void ApplyPlusAction(); // +
     public void ApplyMinusAction(); // -
     public void ApplyEqualAction(); // =
+
+    public void ApplyLeftParentheses();
+    public void ApplyRightParentheses();
     
     // reset calculator
     public void ApplyCleanAll();

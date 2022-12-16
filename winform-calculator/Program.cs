@@ -14,6 +14,7 @@ namespace winform_calculator
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Calculator calculator= new Calculator();
+            calculator.Init();
             Application.Run(new Form1(calculator));
         }
     }

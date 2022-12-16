@@ -12,5 +12,4 @@ public abstract class State
         _stateMachine = stateMachine;
     }
     
-    public virtual void OnStateLeave(){}
 }

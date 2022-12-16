@@ -41,15 +41,11 @@ public class NegativeState : ResultStrState
     }
 
     /// <summary>
-    /// perform sqrt action
+    /// throw exception
     /// </summary>
     public override void ApplySqrtAction()
     {
-        decimal value = decimal.Parse(ResultStr);
-        value = (decimal)Math.Sqrt((double)value);
-        _stateMachine.ChangeState(
-            new NegativeState($"{value}", _stateMachine)
-        );
+        throw new Exception("cant sqrt negative number");
     }
 
     /// <summary>

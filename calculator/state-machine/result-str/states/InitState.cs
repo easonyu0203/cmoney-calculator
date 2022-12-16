@@ -43,5 +43,12 @@ public class InitState : ResultStrState
     public override void ApplySignAction()
     {
     }
+    
+    /// <summary>
+    /// do nothing
+    /// </summary>
+    public override void ApplySqrtAction()
+    {
+    }
 
 }

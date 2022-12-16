@@ -14,10 +14,10 @@ public interface ICalculator
     public void ApplyDecimalAction();
     public void ApplyDeleteResultStrAction();
     public void ApplyCleanResultStr();
-
-    // operator action
     public void ApplySignAction();
     public void ApplySqrtAction();
+
+    // operator action
     public void ApplyMultiplyAction(); // *
     public void ApplyDivideAction(); // /
     public void ApplyPlusAction(); // +

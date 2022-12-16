@@ -17,15 +17,13 @@ using calculator;
 
 Calculator calculator = new Calculator();
 
-// calculator.ApplyNumberAction(1);
-calculator.ApplyNumberAction(9);
-calculator.ApplySqrtAction();
-// calculator.ApplyPlusAction();
-// calculator.ApplyNumberAction(6);
-// calculator.ApplyPlusAction();
-// calculator.ApplyNumberAction(6);
-// calculator.ApplyPlusAction();
-// calculator.ApplyNumberAction(6);
+calculator.ApplyNumberAction(1);
+calculator.ApplyPlusAction();
+calculator.ApplyNumberAction(2);
+calculator.ApplyMultiplyAction();
+calculator.ApplyNumberAction(3);
+calculator.ApplyPlusAction();
+calculator.ApplyNumberAction(4);
 // calculator.ApplyNumberAction(9);
 // calculator.ApplyMultiplyAction();
 // calculator.ApplyNumberAction(3);

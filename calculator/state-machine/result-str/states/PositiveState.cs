@@ -39,6 +39,18 @@ public class PositiveState : ResultStrState
         _stateMachine.ChangeState(new NegativeState($"-{ResultStr}", _stateMachine));
         
     }
+    
+    /// <summary>
+    /// perform sqrt action
+    /// </summary>
+    public override void ApplySqrtAction()
+    {
+        decimal value = decimal.Parse(ResultStr);
+        value = (decimal)Math.Sqrt((double)value);
+        _stateMachine.ChangeState(
+            new PositiveState($"{value}", _stateMachine)
+        );
+    }
 
     /// <summary>
     /// append str to result and change to positive state

@@ -16,7 +16,7 @@ public abstract class ResultStrState : State
     public abstract void ApplyDecimalAction();
 
     public abstract void ApplySignAction();
-    
-    public abstract void ApplyDeleteResultStrAction();
 
+    public abstract void ApplySqrtAction();
+    public abstract void ApplyDeleteResultStrAction();
 }

@@ -12,6 +12,9 @@ public class Equation
     /// this is for output equation, we store all element in equation as an array
     /// </summary>
     private List<ILinkable> _elements;
+    /// <summary>
+    /// place holder string which can be set for presentation
+    /// </summary>
     private string _suffixStr;
 
     public Equation()
@@ -77,7 +80,9 @@ public class Equation
                 BinaryOperator? left = binaryOperator.LeftUnaryExpression.LeftBinaryOperator;
                 BinaryOperator? right = binaryOperator.RightUnaryExpression.RightBinaryOperator;
                 left?.SetRight(resultUnaryExpression);
+                if (left != null) resultUnaryExpression.SetRight(left);
                 right?.SetLeft(resultUnaryExpression);
+                if (right != null) resultUnaryExpression.SetLeft(right);
             }
         }
 

@@ -31,12 +31,11 @@ public class ResultStrStateMachine: StateMachine
     }
 
     /// <summary>
-    /// reinit state machine but don't change the result string 
+    /// reinit state machine 
     /// </summary>
-    /// <param name="placeHolder"></param>
-    public void ReInitWithPlaceHolder(string placeHolder)
+    public void ReInit()
     {
-        ResultStr = placeHolder;
+        ResultStr = "[None]";
         HistoryStack.Clear();
         ChangeState(new InitState(this));
     }
@@ -75,6 +74,12 @@ public class ResultStrStateMachine: StateMachine
     public void ApplySignAction()
     {
         CurrenResultSTrtState.ApplySignAction();
+        StateSync();
+    }
+
+    public void ApplySqrtAction()
+    {
+        CurrenResultSTrtState.ApplySqrtAction();
         StateSync();
     }
 

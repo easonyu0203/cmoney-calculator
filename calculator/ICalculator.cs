@@ -3,13 +3,13 @@ namespace calculator;
 public interface ICalculator
 {
     public Action? UpdateEvent { get; set; }
-
+    
     public string ResultStr { get; }
     public string EquationStr { get; }
     public string PreOrderStr { get; }
     public string InOrderStr { get; }
     public string PostOrderStr { get; }
-
+    public void Init();
     // number manipulation action
     public void ApplyZeroAction();
     public void ApplyNumberAction(int num);

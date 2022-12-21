@@ -59,12 +59,12 @@ public class Calculator : StateMachine, ICalculator
         ResultStr = StringConst.ZeroStr;
         EquationStrElements = new List<string>();
         EquationController = new EquationController();
-        PreOrderStr = "";
-        InOrderStr = "";
-        PostOrderStr = "";
+        PreOrderStr = string.Empty;
+        InOrderStr = string.Empty;
+        PostOrderStr = string.Empty;
         
         // init result string state machine
-        _resultStrStateMachine = new ResultStrStateMachine("0");
+        _resultStrStateMachine = new ResultStrStateMachine(StringConst.ZeroStr);
         _resultStrStateMachine.Init();
        
     }

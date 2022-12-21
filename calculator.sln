@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "console-playground", "conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winform-calculator", "winform-calculator\winform-calculator.csproj", "{B36F98EC-7336-45B3-891C-48FE5D2CEF7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-server", "api-server\api-server.csproj", "{81E2C78B-2D31-4F4E-8C28-707718562B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-protocol", "web-protocol\web-protocol.csproj", "{B86991C9-4451-44EB-8A34-46682D920795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B36F98EC-7336-45B3-891C-48FE5D2CEF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B36F98EC-7336-45B3-891C-48FE5D2CEF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B36F98EC-7336-45B3-891C-48FE5D2CEF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E2C78B-2D31-4F4E-8C28-707718562B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E2C78B-2D31-4F4E-8C28-707718562B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E2C78B-2D31-4F4E-8C28-707718562B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E2C78B-2D31-4F4E-8C28-707718562B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B86991C9-4451-44EB-8A34-46682D920795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86991C9-4451-44EB-8A34-46682D920795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86991C9-4451-44EB-8A34-46682D920795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86991C9-4451-44EB-8A34-46682D920795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

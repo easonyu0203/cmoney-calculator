@@ -3,31 +3,17 @@
 using calculator;
 using calculator.EquationSystem;
 using calculator.EquationSystem.Elements;
+using console_playground;
 
 
-Calculator calculator = new Calculator();
-calculator.Init();
-
-// calculator.ApplyLeftParentheses();
-// calculator.ApplyNumberAction(1);
-// calculator.ApplyPlusAction();
-// calculator.ApplyNumberAction(2);
-// calculator.ApplyRightParentheses();
-// calculator.ApplyMultiplyAction();
-// calculator.ApplyNumberAction(3);
-// calculator.ApplyPlusAction();
-// calculator.ApplyNumberAction(4);
-// calculator.ApplyEqualAction();
-
+WebCalculator calculator = new WebCalculator();
+calculator.ApplyLeftParentheses();
 calculator.ApplyNumberAction(1);
 calculator.ApplyPlusAction();
 calculator.ApplyNumberAction(2);
-calculator.ApplyMultiplyAction();
-calculator.ApplyLeftParentheses();
-calculator.ApplyNumberAction(3);
-calculator.ApplyPlusAction();
-calculator.ApplyNumberAction(4);
 calculator.ApplyRightParentheses();
+calculator.ApplyMultiplyAction();
+calculator.ApplyNumberAction(3);
 calculator.ApplyEqualAction();
 
 Console.WriteLine(calculator.EquationStr);

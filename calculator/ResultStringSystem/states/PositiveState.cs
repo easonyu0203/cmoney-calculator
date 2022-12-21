@@ -1,5 +1,11 @@
-namespace calculator.state_machine.result_str.states;
+using calculator.state_machine;
 
+namespace calculator.ResultStringSystem.states;
+
+
+/// <summary>
+/// state enter when result value is negative
+/// </summary>
 public class PositiveState : ResultStrState
 {
 
@@ -8,16 +14,25 @@ public class PositiveState : ResultStrState
     {
     }
     
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyZeroAction()
     {
         AppendAndChangeToPositiveState("0");
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyNumberAction(int num)
     {
         AppendAndChangeToPositiveState($"{num}");
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyDecimalAction()
     {
         AppendAndChangeToPositiveState(".");

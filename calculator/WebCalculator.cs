@@ -1,20 +1,40 @@
-using calculator;
 using web_protocol;
 
-namespace console_playground;
+namespace calculator;
 
 /// <summary>
 /// web client base calculator
 /// </summary>
 public class WebCalculator : ICalculator
 {
+    /// <summary>
+    /// http client
+    /// </summary>
     private static readonly HttpClient Client = new HttpClient();
 
+    /// <summary>
+    /// when update
+    /// </summary>
     public Action? UpdateEvent { get; set; }
+    /// <summary>
+    /// result string
+    /// </summary>
     public string ResultStr { get; private set; }
+    /// <summary>
+    /// equation string
+    /// </summary>
     public string EquationStr { get; private set; }
+    /// <summary>
+    /// preorder string
+    /// </summary>
     public string PreOrderStr { get; private set; }
+    /// <summary>
+    /// inorder string
+    /// </summary>
     public string InOrderStr { get; private set; }
+    /// <summary>
+    /// postorder string
+    /// </summary>
     public string PostOrderStr { get; private set; }
 
     /// <summary>

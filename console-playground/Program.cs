@@ -1,12 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using calculator;
-using calculator.EquationSystem;
-using calculator.EquationSystem.Elements;
-using console_playground;
 
 
-WebCalculator calculator = new WebCalculator();
+ICalculator calculator = new Calculator();
+calculator.Init();
+
+
+ICalculator calculator2 = new Calculator();
+calculator2.Init();
+
 calculator.ApplyLeftParentheses();
 calculator.ApplyNumberAction(1);
 calculator.ApplyPlusAction();
@@ -18,3 +21,16 @@ calculator.ApplyEqualAction();
 
 Console.WriteLine(calculator.EquationStr);
 Console.WriteLine(calculator.ResultStr);
+
+
+calculator2.ApplyLeftParentheses();
+calculator2.ApplyNumberAction(1);
+calculator2.ApplyPlusAction();
+calculator2.ApplyNumberAction(2);
+calculator2.ApplyRightParentheses();
+calculator2.ApplyMultiplyAction();
+calculator2.ApplyNumberAction(3);
+calculator2.ApplyEqualAction();
+
+Console.WriteLine(calculator2.EquationStr);
+Console.WriteLine(calculator2.ResultStr);

@@ -1,8 +1,13 @@
-namespace calculator.state_machine.result_str.states;
+using calculator.state_machine;
 
+namespace calculator.ResultStringSystem.states;
+
+/// <summary>
+/// state when just enter state machine
+/// </summary>
 public class InitState : ResultStrState
 {
-    public InitState(StateMachine stateMachine) : base("0", stateMachine)
+    public InitState(StateMachine stateMachine) : base(StringConst.ZeroStr, stateMachine)
     {
     }
 

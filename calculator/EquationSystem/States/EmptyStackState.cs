@@ -1,7 +1,6 @@
 using calculator.EquationSystem.Elements;
-using calculator.EquationSystem.States;
 
-namespace calculator.EquationSystem;
+namespace calculator.EquationSystem.States;
 
 /// <summary>
 /// state one first init, nothing in stack

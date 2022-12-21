@@ -7,13 +7,16 @@ namespace calculator.EquationSystem;
 /// </summary>
 public class EquationController
 {
-    private Stack<SubEquationStateMachine> _allEquationStateMachines;
+    /// <summary>
+    /// stack of all sub equation state machine
+    /// </summary>
+    private Stack<SubEquationStateMachine> AllEquationStateMachines;
 
     public EquationController()
     {
-        _allEquationStateMachines = new Stack<SubEquationStateMachine>();
-        _allEquationStateMachines.Push(new SubEquationStateMachine());
-        _allEquationStateMachines.Peek().Init();
+        AllEquationStateMachines = new Stack<SubEquationStateMachine>();
+        AllEquationStateMachines.Push(new SubEquationStateMachine());
+        AllEquationStateMachines.Peek().Init();
     }
 
     /// <summary>
@@ -21,8 +24,8 @@ public class EquationController
     /// </summary>
     public void AddLeftParentheses()
     {
-        _allEquationStateMachines.Push(new SubEquationStateMachine());
-        _allEquationStateMachines.Peek().Init();
+        AllEquationStateMachines.Push(new SubEquationStateMachine());
+        AllEquationStateMachines.Peek().Init();
     }
     
     /// <summary>
@@ -30,8 +33,8 @@ public class EquationController
     /// </summary>
     public void AddRightParentheses()
     {
-        Node node = _allEquationStateMachines.Pop().GetTree();
-        _allEquationStateMachines.Peek().AddNode(node);
+        Node node = AllEquationStateMachines.Pop().GetTree();
+        AllEquationStateMachines.Peek().AddNode(node);
     }
     
     /// <summary>
@@ -40,14 +43,14 @@ public class EquationController
     /// <param name="value"></param>
     public void AddOperand(decimal value)
     {
-        _allEquationStateMachines.Peek().AddOperand(value);
+        AllEquationStateMachines.Peek().AddOperand(value);
     }
     /// <summary>
     ///  add operand to deepest sub equation
     /// </summary>
     public void AddPlusOperator()
     {
-        _allEquationStateMachines.Peek().AddPlusOperator();
+        AllEquationStateMachines.Peek().AddPlusOperator();
     }
     
     /// <summary>
@@ -55,7 +58,7 @@ public class EquationController
     /// </summary>
     public void AddMinusOperator()
     {
-        _allEquationStateMachines.Peek().AddMinusOperator();
+        AllEquationStateMachines.Peek().AddMinusOperator();
     }
 
     /// <summary>
@@ -63,7 +66,7 @@ public class EquationController
     /// </summary>
     public void AddMultiplyOperator()
     {
-        _allEquationStateMachines.Peek().AddMultiplyOperator();
+        AllEquationStateMachines.Peek().AddMultiplyOperator();
     }
     
     /// <summary>
@@ -71,7 +74,7 @@ public class EquationController
     /// </summary>
     public void AddDivideOperator()
     {
-        _allEquationStateMachines.Peek().AddDivideOperator();
+        AllEquationStateMachines.Peek().AddDivideOperator();
     }
 
     /// <summary>
@@ -82,7 +85,7 @@ public class EquationController
     /// </returns>
     public (decimal resultValue, string preOrder, string inOrder, string postOrder) CalculateResult()
     {
-        Node root = _allEquationStateMachines.Peek().GetTree();
+        Node root = AllEquationStateMachines.Peek().GetTree();
         string preOrder = root.PreOrderTraverse();
         string inOrder = root.InorderTraverse();
         string postOrder = root.PostOrderTraverse();

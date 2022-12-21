@@ -1,5 +1,10 @@
+using calculator.StateDesign;
+
 namespace calculator.state_machine;
 
+/// <summary>
+/// state machine
+/// </summary>
 public abstract class StateMachine
 {
     /// <summary>

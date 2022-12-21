@@ -1,15 +1,20 @@
-using calculator.state_machine.equation;
 using calculator.States;
 
 namespace calculator.states;
 
+/// <summary>
+/// state which are constructing number
+/// </summary>
 public class ConstructNumberState : CalculatorState
 {
-    private readonly Calculator _calculator;
+    /// <summary>
+    /// reference of calculator
+    /// </summary>
+    private readonly Calculator Calculator;
 
     public ConstructNumberState(Calculator calculator) : base(calculator)
     {
-        _calculator = calculator;
+        Calculator = calculator;
     }
 
     /// <summary>
@@ -52,43 +57,58 @@ public class ConstructNumberState : CalculatorState
     /// </summary>
     public override void ApplyMultiplyAction()
     {
-        _calculator.EquationStrElements.Add(_calculator.ResultStr);
-        _calculator.EquationController.AddOperand(_calculator.ResultValue);
-        _stateMachine.ChangeState(new ConstructOperatorState(_calculator, _calculator.EquationController.AddMultiplyOperator, StringConst.MultiplyStr));
+        Calculator.EquationStrElements.Add(Calculator.ResultStr);
+        Calculator.EquationController.AddOperand(Calculator.ResultValue);
+        _stateMachine.ChangeState(new ConstructOperatorState(Calculator, Calculator.EquationController.AddMultiplyOperator, StringConst.MultiplyStr));
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyDivideAction()
     {
-        _calculator.EquationStrElements.Add(_calculator.ResultStr);
-        _calculator.EquationController.AddOperand(_calculator.ResultValue);
-        _stateMachine.ChangeState(new ConstructOperatorState(_calculator, _calculator.EquationController.AddDivideOperator, StringConst.DivideStr));
+        Calculator.EquationStrElements.Add(Calculator.ResultStr);
+        Calculator.EquationController.AddOperand(Calculator.ResultValue);
+        _stateMachine.ChangeState(new ConstructOperatorState(Calculator, Calculator.EquationController.AddDivideOperator, StringConst.DivideStr));
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyPlusAction()
     {
-        _calculator.EquationStrElements.Add(_calculator.ResultStr);
-        _calculator.EquationController.AddOperand(_calculator.ResultValue);
-        _stateMachine.ChangeState(new ConstructOperatorState(_calculator, _calculator.EquationController.AddPlusOperator, StringConst.PlusStr));
+        Calculator.EquationStrElements.Add(Calculator.ResultStr);
+        Calculator.EquationController.AddOperand(Calculator.ResultValue);
+        _stateMachine.ChangeState(new ConstructOperatorState(Calculator, Calculator.EquationController.AddPlusOperator, StringConst.PlusStr));
         ;
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyMinusAction()
     {
-        _calculator.EquationStrElements.Add(_calculator.ResultStr);
-        _calculator.EquationController.AddOperand(_calculator.ResultValue);
-        _stateMachine.ChangeState(new ConstructOperatorState(_calculator, _calculator.EquationController.AddMinusOperator, StringConst.MinusStr));
+        Calculator.EquationStrElements.Add(Calculator.ResultStr);
+        Calculator.EquationController.AddOperand(Calculator.ResultValue);
+        _stateMachine.ChangeState(new ConstructOperatorState(Calculator, Calculator.EquationController.AddMinusOperator, StringConst.MinusStr));
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyLeftParentheses()
     {
-        _calculator.EquationStrElements.Add(StringConst.LeftParentheses);
-        _calculator.EquationController.AddLeftParentheses();
+        Calculator.EquationStrElements.Add(StringConst.LeftParentheses);
+        Calculator.EquationController.AddLeftParentheses();
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyEqualAction()
     {
         // the last operand will always be result string
-        _calculator.EquationController.AddOperand(_calculator.ResultValue);
-        _calculator.EquationStrElements.Add(_calculator.ResultStr);
+        Calculator.EquationController.AddOperand(Calculator.ResultValue);
+        Calculator.EquationStrElements.Add(Calculator.ResultStr);
     }
 }

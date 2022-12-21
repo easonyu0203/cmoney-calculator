@@ -1,5 +1,8 @@
 namespace calculator;
 
+/// <summary>
+/// some constant string
+/// </summary>
 public static class StringConst
 {
     public static readonly string PlusStr = "+";

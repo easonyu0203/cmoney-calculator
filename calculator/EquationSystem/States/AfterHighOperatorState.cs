@@ -1,8 +1,10 @@
 using calculator.EquationSystem.Elements;
-using calculator.EquationSystem.States;
 
-namespace calculator.EquationSystem;
+namespace calculator.EquationSystem.States;
 
+/// <summary>
+/// state enter after apply high priority operator
+/// </summary>
 public class AfterHighOperatorState : SubEquationState
 {
     public AfterHighOperatorState(SubEquationStateMachine stateMachine) : base(stateMachine)

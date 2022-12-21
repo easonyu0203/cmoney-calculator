@@ -3,19 +3,25 @@ using winform_calculator.Buttons;
 
 namespace winform_calculator
 {
+    /// <summary>
+    /// main form
+    /// </summary>
     public partial class Form1 : Form
     {
-        private ICalculator _calculator;
+        /// <summary>
+        /// calculator for the form
+        /// </summary>
+        private ICalculator Calculator;
 
         public Form1(ICalculator calculatorController)
         {
             InitializeComponent();
-            _calculator = calculatorController;
+            Calculator = calculatorController;
 
-            _calculator.UpdateEvent += () =>
+            Calculator.UpdateEvent += () =>
             {
-                ResultText.Text = _calculator.ResultStr;
-                EquationText.Text = _calculator.EquationStr;
+                ResultText.Text = Calculator.ResultStr;
+                EquationText.Text = Calculator.EquationStr;
             };
 
             Button0.Click += OnMyClick;
@@ -43,7 +49,7 @@ namespace winform_calculator
 
         private void OnMyClick(object? sender, EventArgs e)
         {
-            ((IMyButton)sender).OnPress(_calculator);
+            ((IMyButton)sender).OnPress(Calculator);
 
         }
     }

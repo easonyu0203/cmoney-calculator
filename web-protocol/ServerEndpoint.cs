@@ -1,5 +1,9 @@
 namespace web_protocol;
 using Newtonsoft.Json;
+
+/// <summary>
+/// for config server endpoint values and some helper function to send request
+/// </summary>
 public static class ServerEndpoint
 {
     public const string Url = "http://localhost:5105";

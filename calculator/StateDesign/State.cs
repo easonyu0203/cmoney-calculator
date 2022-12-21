@@ -1,5 +1,10 @@
-namespace calculator.state_machine;
+using calculator.state_machine;
 
+namespace calculator.StateDesign;
+
+/// <summary>
+/// base state for state machine
+/// </summary>
 public abstract class State
 {
     /// <summary>

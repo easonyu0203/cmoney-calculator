@@ -1,7 +1,7 @@
 ﻿using calculator.EquationSystem;
+using calculator.ResultStringSystem;
 using calculator.state_machine;
-using calculator.state_machine.equation;
-using calculator.state_machine.result_str;
+using calculator.StateDesign;
 using calculator.states;
 using calculator.States;
 
@@ -32,8 +32,17 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public string EquationStr => string.Join(' ', EquationStrElements);
 
+    /// <summary>
+    /// preorder string
+    /// </summary>
     public string PreOrderStr { get; private set;}
+    /// <summary>
+    /// preorder string
+    /// </summary>
     public string InOrderStr { get; private set;}
+    /// <summary>
+    /// preorder string
+    /// </summary>
     public string PostOrderStr { get; private set;}
 
     /// <summary>

@@ -1,73 +1,108 @@
-using calculator.state_machine.equation;
 using calculator.states;
 
 namespace calculator.States;
 
-public class AfterEqualState:CalculatorState
+/// <summary>
+/// the state after apply equation action
+/// </summary>
+public class AfterEqualState : CalculatorState
 {
-    private Calculator _calculator;
-    
+    /// <summary>
+    /// reference of calculator
+    /// </summary>
+    private Calculator Calculator;
+
     public AfterEqualState(Calculator stateMachine) : base(stateMachine)
     {
-        _calculator = stateMachine;
+        Calculator = stateMachine;
     }
-    
 
+
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyZeroAction()
     {
-        _calculator.ApplyCleanAll();
+        Calculator.ApplyCleanAll();
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyNumberAction(int num)
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyNumberAction(num);
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyNumberAction(num);
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyDecimalAction()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyDecimalAction();
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyDecimalAction();
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplySqrtAction()
     {
-        _calculator.ApplyCleanAll();
+        Calculator.ApplyCleanAll();
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyMultiplyAction()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyMultiplyAction();
-    } 
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyMultiplyAction();
+    }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyDivideAction()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyDivideAction();
-    } 
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyDivideAction();
+    }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyPlusAction()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyPlusAction();
-    } 
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyPlusAction();
+    }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyMinusAction()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyMinusAction();
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyMinusAction();
     }
 
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyLeftParentheses()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyLeftParentheses();
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyLeftParentheses();
     }
-    
+
+    /// <summary>
+    /// apply zero action
+    /// </summary>
     public override void ApplyRightParentheses()
     {
-        _calculator.ApplyCleanAll();
-        _calculator.ApplyRightParentheses();
+        Calculator.ApplyCleanAll();
+        Calculator.ApplyRightParentheses();
     }
 }

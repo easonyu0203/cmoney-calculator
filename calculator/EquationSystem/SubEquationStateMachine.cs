@@ -1,6 +1,7 @@
 using calculator.EquationSystem.Elements;
 using calculator.EquationSystem.States;
 using calculator.state_machine;
+using calculator.StateDesign;
 
 namespace calculator.EquationSystem;
 
@@ -29,6 +30,10 @@ public class SubEquationStateMachine : StateMachine
         OutputNodes = new Stack<Node>();
     }
 
+    /// <summary>
+    /// get init state
+    /// </summary>
+    /// <returns>empty stack satte</returns>
     protected override State GetInitState()
     {
         return new EmptyStackState(this);

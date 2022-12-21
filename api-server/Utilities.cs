@@ -3,8 +3,16 @@ using web_protocol;
 
 namespace api_server;
 
-public static class Ultilities
+/// <summary>
+/// some utilities functions
+/// </summary>
+public static class Utilities
 {
+    /// <summary>
+    /// get current calculator context
+    /// </summary>
+    /// <param name="calculator">calculator</param>
+    /// <returns></returns>
     public static CalculatorContext GetCalculatorContext(ICalculator calculator)
     {
         return new CalculatorContext(calculator.ResultStr, calculator.EquationStr, calculator.PreOrderStr,

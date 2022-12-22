@@ -22,6 +22,9 @@ namespace winform_calculator
             {
                 ResultText.Text = Calculator.ResultStr;
                 EquationText.Text = Calculator.EquationStr;
+                PreTextBox.Text = Calculator.PreOrderStr;
+                InTextBox.Text = Calculator.InOrderStr;
+                PostTextBox.Text = Calculator.PostOrderStr;
             };
 
             Button0.Click += OnMyClick;
@@ -45,6 +48,8 @@ namespace winform_calculator
             CButton.Click += OnMyClick;
             DecimalButton.Click += OnMyClick;
             EqualButton.Click += OnMyClick;
+            LeftButton.Click += OnMyClick;
+            RightButton.Click += OnMyClick;
         }
 
         private void OnMyClick(object? sender, EventArgs e)

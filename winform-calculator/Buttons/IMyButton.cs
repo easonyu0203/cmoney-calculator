@@ -178,4 +178,20 @@ namespace winform_calculator.Buttons
         }
     }
 
+    public class MyLeftButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyLeftParentheses();
+        }
+    }
+
+    public class MyRightButton : Button, IMyButton
+    {
+        public void OnPress(ICalculator calculatorController)
+        {
+            calculatorController.ApplyRightParentheses();
+        }
+    }
+
 }

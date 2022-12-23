@@ -1,4 +1,6 @@
 using calculator;
+using System;
+using web_protocol;
 using winform_calculator.Buttons;
 
 namespace winform_calculator
@@ -8,24 +10,16 @@ namespace winform_calculator
     /// </summary>
     public partial class Form1 : Form
     {
-        /// <summary>
-        /// calculator for the form
-        /// </summary>
-        private ICalculator Calculator;
 
-        public Form1(ICalculator calculatorController)
+        private HttpClient HttpClient;
+        private Guid Guid;
+
+        public Form1()
         {
             InitializeComponent();
-            Calculator = calculatorController;
 
-            Calculator.UpdateEvent += () =>
-            {
-                ResultText.Text = Calculator.ResultStr;
-                EquationText.Text = Calculator.EquationStr;
-                PreTextBox.Text = Calculator.PreOrderStr;
-                InTextBox.Text = Calculator.InOrderStr;
-                PostTextBox.Text = Calculator.PostOrderStr;
-            }; 
+            HttpClient = new HttpClient();
+            Guid = ServerEndpoint.CreateRequest(HttpClient);
 
             Button0.Click += OnMyClick;
             button1.Click += OnMyClick;
@@ -59,7 +53,19 @@ namespace winform_calculator
         /// <param name="e">event args</param>
         private void OnMyClick(object? sender, EventArgs e)
         {
-            ((IMyButton)sender).OnPress(Calculator);
+            Button button = ((Button)sender);
+            string url = (string)button.Tag;
+            url += $"/{Guid}";
+
+            HttpRequestMessage requestMessage =
+    new HttpRequestMessage(HttpMethod.Post, url);
+            CalculatorContext calculatorContext = ServerEndpoint.SendRequest(HttpClient, requestMessage);
+
+            ResultText.Text = calculatorContext.ResultStr;
+            EquationText.Text = calculatorContext.EquationStr;
+            PreTextBox.Text = calculatorContext.PreOrderStr;
+            InTextBox.Text = calculatorContext.InOrderStr;
+            PostTextBox.Text = calculatorContext.PostOrderStr;
 
         }
     }

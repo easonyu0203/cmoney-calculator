@@ -38,8 +38,8 @@ namespace winform_calculator
             this.DeleteButton = new winform_calculator.Buttons.MyDeleteButton();
             this.DivideButton = new winform_calculator.Buttons.MyDivideButton();
             this.SqrtButton = new winform_calculator.Buttons.MySqrtButton();
-            this.button711 = new System.Windows.Forms.Button();
-            this.button811 = new System.Windows.Forms.Button();
+            this.RightButton = new MyRightButton();
+            this.LeftButton = new MyLeftButton();
             this.MultiplyButton = new winform_calculator.Buttons.MyMultiplyButton();
             this.button9 = new winform_calculator.Buttons.MyButton9();
             this.button8 = new winform_calculator.Buttons.MyButton8();
@@ -53,14 +53,17 @@ namespace winform_calculator
             this.button2 = new winform_calculator.Buttons.MyButton2();
             this.button1 = new winform_calculator.Buttons.MyButton1();
             this.EqualButton = new winform_calculator.Buttons.MyEqualButton();
-            this.DecimalButton = new MyDecimalButton();
+            this.DecimalButton = new winform_calculator.Buttons.MyDecimalButton();
             this.Button0 = new winform_calculator.Buttons.MyButton0();
             this.SignButton = new winform_calculator.Buttons.MySignButton();
+            this.PostTextBox = new System.Windows.Forms.TextBox();
+            this.InTextBox = new System.Windows.Forms.TextBox();
+            this.PreTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // EquationText
             // 
-            this.EquationText.Location = new System.Drawing.Point(14, 32);
+            this.EquationText.Location = new System.Drawing.Point(12, 158);
             this.EquationText.Name = "EquationText";
             this.EquationText.Size = new System.Drawing.Size(393, 24);
             this.EquationText.TabIndex = 0;
@@ -69,7 +72,7 @@ namespace winform_calculator
             // ResultText
             // 
             this.ResultText.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ResultText.Location = new System.Drawing.Point(14, 83);
+            this.ResultText.Location = new System.Drawing.Point(12, 209);
             this.ResultText.Name = "ResultText";
             this.ResultText.Size = new System.Drawing.Size(393, 28);
             this.ResultText.TabIndex = 1;
@@ -77,7 +80,7 @@ namespace winform_calculator
             // 
             // button111
             // 
-            this.button111.Location = new System.Drawing.Point(14, 138);
+            this.button111.Location = new System.Drawing.Point(14, 256);
             this.button111.Name = "button111";
             this.button111.Size = new System.Drawing.Size(90, 62);
             this.button111.TabIndex = 2;
@@ -86,7 +89,7 @@ namespace winform_calculator
             // 
             // CEButton
             // 
-            this.CEButton.Location = new System.Drawing.Point(111, 138);
+            this.CEButton.Location = new System.Drawing.Point(111, 256);
             this.CEButton.Name = "CEButton";
             this.CEButton.Size = new System.Drawing.Size(90, 62);
             this.CEButton.TabIndex = 3;
@@ -95,7 +98,7 @@ namespace winform_calculator
             // 
             // CButton
             // 
-            this.CButton.Location = new System.Drawing.Point(208, 138);
+            this.CButton.Location = new System.Drawing.Point(208, 256);
             this.CButton.Name = "CButton";
             this.CButton.Size = new System.Drawing.Size(90, 62);
             this.CButton.TabIndex = 4;
@@ -104,7 +107,7 @@ namespace winform_calculator
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(305, 138);
+            this.DeleteButton.Location = new System.Drawing.Point(305, 256);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(90, 62);
             this.DeleteButton.TabIndex = 5;
@@ -113,7 +116,7 @@ namespace winform_calculator
             // 
             // DivideButton
             // 
-            this.DivideButton.Location = new System.Drawing.Point(305, 207);
+            this.DivideButton.Location = new System.Drawing.Point(305, 325);
             this.DivideButton.Name = "DivideButton";
             this.DivideButton.Size = new System.Drawing.Size(90, 62);
             this.DivideButton.TabIndex = 9;
@@ -122,34 +125,34 @@ namespace winform_calculator
             // 
             // SqrtButton
             // 
-            this.SqrtButton.Location = new System.Drawing.Point(208, 207);
+            this.SqrtButton.Location = new System.Drawing.Point(208, 325);
             this.SqrtButton.Name = "SqrtButton";
             this.SqrtButton.Size = new System.Drawing.Size(90, 62);
             this.SqrtButton.TabIndex = 8;
             this.SqrtButton.Text = "sqrt";
             this.SqrtButton.UseVisualStyleBackColor = true;
             // 
-            // button711
+            // RightButton
             // 
-            this.button711.Location = new System.Drawing.Point(111, 207);
-            this.button711.Name = "button711";
-            this.button711.Size = new System.Drawing.Size(90, 62);
-            this.button711.TabIndex = 7;
-            this.button711.Text = "button7";
-            this.button711.UseVisualStyleBackColor = true;
+            this.RightButton.Location = new System.Drawing.Point(111, 325);
+            this.RightButton.Name = "RightButton";
+            this.RightButton.Size = new System.Drawing.Size(90, 62);
+            this.RightButton.TabIndex = 7;
+            this.RightButton.Text = ")";
+            this.RightButton.UseVisualStyleBackColor = true;
             // 
-            // button811
+            // LeftButton
             // 
-            this.button811.Location = new System.Drawing.Point(14, 207);
-            this.button811.Name = "button811";
-            this.button811.Size = new System.Drawing.Size(90, 62);
-            this.button811.TabIndex = 6;
-            this.button811.Text = "button8";
-            this.button811.UseVisualStyleBackColor = true;
+            this.LeftButton.Location = new System.Drawing.Point(14, 325);
+            this.LeftButton.Name = "LeftButton";
+            this.LeftButton.Size = new System.Drawing.Size(90, 62);
+            this.LeftButton.TabIndex = 6;
+            this.LeftButton.Text = "(";
+            this.LeftButton.UseVisualStyleBackColor = true;
             // 
             // MultiplyButton
             // 
-            this.MultiplyButton.Location = new System.Drawing.Point(305, 277);
+            this.MultiplyButton.Location = new System.Drawing.Point(305, 395);
             this.MultiplyButton.Name = "MultiplyButton";
             this.MultiplyButton.Size = new System.Drawing.Size(90, 62);
             this.MultiplyButton.TabIndex = 13;
@@ -158,7 +161,7 @@ namespace winform_calculator
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(208, 277);
+            this.button9.Location = new System.Drawing.Point(208, 395);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(90, 62);
             this.button9.TabIndex = 12;
@@ -167,7 +170,7 @@ namespace winform_calculator
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(111, 277);
+            this.button8.Location = new System.Drawing.Point(111, 395);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(90, 62);
             this.button8.TabIndex = 11;
@@ -176,7 +179,7 @@ namespace winform_calculator
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(14, 277);
+            this.button7.Location = new System.Drawing.Point(14, 395);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(90, 62);
             this.button7.TabIndex = 10;
@@ -185,7 +188,7 @@ namespace winform_calculator
             // 
             // MinusButton
             // 
-            this.MinusButton.Location = new System.Drawing.Point(305, 346);
+            this.MinusButton.Location = new System.Drawing.Point(305, 464);
             this.MinusButton.Name = "MinusButton";
             this.MinusButton.Size = new System.Drawing.Size(90, 62);
             this.MinusButton.TabIndex = 17;
@@ -194,7 +197,7 @@ namespace winform_calculator
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(208, 346);
+            this.button6.Location = new System.Drawing.Point(208, 464);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(90, 62);
             this.button6.TabIndex = 16;
@@ -203,7 +206,7 @@ namespace winform_calculator
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(111, 346);
+            this.button5.Location = new System.Drawing.Point(111, 464);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 62);
             this.button5.TabIndex = 15;
@@ -212,7 +215,7 @@ namespace winform_calculator
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(14, 346);
+            this.button4.Location = new System.Drawing.Point(14, 464);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(90, 62);
             this.button4.TabIndex = 14;
@@ -221,7 +224,7 @@ namespace winform_calculator
             // 
             // PlusButton
             // 
-            this.PlusButton.Location = new System.Drawing.Point(305, 415);
+            this.PlusButton.Location = new System.Drawing.Point(305, 533);
             this.PlusButton.Name = "PlusButton";
             this.PlusButton.Size = new System.Drawing.Size(90, 62);
             this.PlusButton.TabIndex = 21;
@@ -230,7 +233,7 @@ namespace winform_calculator
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(208, 415);
+            this.button3.Location = new System.Drawing.Point(208, 533);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 62);
             this.button3.TabIndex = 20;
@@ -239,7 +242,7 @@ namespace winform_calculator
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(111, 415);
+            this.button2.Location = new System.Drawing.Point(111, 533);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 62);
             this.button2.TabIndex = 19;
@@ -248,7 +251,7 @@ namespace winform_calculator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 415);
+            this.button1.Location = new System.Drawing.Point(14, 533);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 62);
             this.button1.TabIndex = 18;
@@ -257,7 +260,7 @@ namespace winform_calculator
             // 
             // EqualButton
             // 
-            this.EqualButton.Location = new System.Drawing.Point(305, 484);
+            this.EqualButton.Location = new System.Drawing.Point(305, 602);
             this.EqualButton.Name = "EqualButton";
             this.EqualButton.Size = new System.Drawing.Size(90, 62);
             this.EqualButton.TabIndex = 25;
@@ -266,7 +269,7 @@ namespace winform_calculator
             // 
             // DecimalButton
             // 
-            this.DecimalButton.Location = new System.Drawing.Point(208, 484);
+            this.DecimalButton.Location = new System.Drawing.Point(208, 602);
             this.DecimalButton.Name = "DecimalButton";
             this.DecimalButton.Size = new System.Drawing.Size(90, 62);
             this.DecimalButton.TabIndex = 24;
@@ -275,7 +278,7 @@ namespace winform_calculator
             // 
             // Button0
             // 
-            this.Button0.Location = new System.Drawing.Point(111, 484);
+            this.Button0.Location = new System.Drawing.Point(111, 602);
             this.Button0.Name = "Button0";
             this.Button0.Size = new System.Drawing.Size(90, 62);
             this.Button0.TabIndex = 23;
@@ -284,18 +287,48 @@ namespace winform_calculator
             // 
             // SignButton
             // 
-            this.SignButton.Location = new System.Drawing.Point(14, 484);
+            this.SignButton.Location = new System.Drawing.Point(14, 602);
             this.SignButton.Name = "SignButton";
             this.SignButton.Size = new System.Drawing.Size(90, 62);
             this.SignButton.TabIndex = 22;
             this.SignButton.Text = "+-";
             this.SignButton.UseVisualStyleBackColor = true;
             // 
+            // PostTextBox
+            // 
+            this.PostTextBox.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PostTextBox.Location = new System.Drawing.Point(12, 108);
+            this.PostTextBox.Name = "PostTextBox";
+            this.PostTextBox.Size = new System.Drawing.Size(393, 28);
+            this.PostTextBox.TabIndex = 26;
+            this.PostTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // InTextBox
+            // 
+            this.InTextBox.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InTextBox.Location = new System.Drawing.Point(16, 63);
+            this.InTextBox.Name = "InTextBox";
+            this.InTextBox.Size = new System.Drawing.Size(393, 28);
+            this.InTextBox.TabIndex = 27;
+            this.InTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PreTextBox
+            // 
+            this.PreTextBox.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PreTextBox.Location = new System.Drawing.Point(14, 12);
+            this.PreTextBox.Name = "PreTextBox";
+            this.PreTextBox.Size = new System.Drawing.Size(393, 28);
+            this.PreTextBox.TabIndex = 28;
+            this.PreTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 595);
+            this.ClientSize = new System.Drawing.Size(421, 717);
+            this.Controls.Add(this.PreTextBox);
+            this.Controls.Add(this.InTextBox);
+            this.Controls.Add(this.PostTextBox);
             this.Controls.Add(this.EqualButton);
             this.Controls.Add(this.DecimalButton);
             this.Controls.Add(this.Button0);
@@ -314,8 +347,8 @@ namespace winform_calculator
             this.Controls.Add(this.button7);
             this.Controls.Add(this.DivideButton);
             this.Controls.Add(this.SqrtButton);
-            this.Controls.Add(this.button711);
-            this.Controls.Add(this.button811);
+            this.Controls.Add(this.RightButton);
+            this.Controls.Add(this.LeftButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.CButton);
             this.Controls.Add(this.CEButton);
@@ -340,8 +373,8 @@ namespace winform_calculator
         private MyDeleteButton DeleteButton;
         private MyDivideButton DivideButton;
         private MySqrtButton SqrtButton;
-        private Button button711;
-        private Button button811;
+        private MyRightButton RightButton;
+        private MyLeftButton LeftButton;
         private MyMultiplyButton MultiplyButton;
         private MyButton9 button9;
         private MyButton8 button8;
@@ -358,5 +391,8 @@ namespace winform_calculator
         private MyDecimalButton DecimalButton;
         private MyButton0 Button0;
         private MySignButton SignButton;
+        private TextBox PostTextBox;
+        private TextBox InTextBox;
+        private TextBox PreTextBox;
     }
 }

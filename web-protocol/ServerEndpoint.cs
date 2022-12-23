@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 /// </summary>
 public static class ServerEndpoint
 {
-    public const string Url = "http://localhost:5105";
+    public const string Url = "http://localhost:50389";
     public const string CreateUrl = $"{Url}/create";
     public const string ZeroUrl = $"{Url}/0";
     public const string NumberUrl = $"{Url}";

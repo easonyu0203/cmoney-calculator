@@ -52,7 +52,7 @@ public class Calculator : StateMachine, ICalculator
     /// <summary>
     /// The state machine which handle result string change due to actions
     /// </summary>
-    private readonly ResultStrStateMachine _resultStrStateMachine;
+    private readonly ResultStrStateMachine ResultStrStateMachine;
     /// <summary>
     /// current state of calculator state machine
     /// </summary>
@@ -73,8 +73,8 @@ public class Calculator : StateMachine, ICalculator
         PostOrderStr = string.Empty;
         
         // init result string state machine
-        _resultStrStateMachine = new ResultStrStateMachine(StringConst.ZeroStr);
-        _resultStrStateMachine.Init();
+        ResultStrStateMachine = new ResultStrStateMachine(StringConst.ZeroStr);
+        ResultStrStateMachine.Init();
        
     }
     
@@ -92,11 +92,11 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyZeroAction()
     {
-        _resultStrStateMachine.ApplyZeroAction();
+        ResultStrStateMachine.ApplyZeroAction();
         CurrentCalculatorState.ApplyZeroAction();
 
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         UpdateEvent?.Invoke();
     }
@@ -106,11 +106,11 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyNumberAction(int num)
     {
-        _resultStrStateMachine.ApplyNumberAction(num);
+        ResultStrStateMachine.ApplyNumberAction(num);
         CurrentCalculatorState.ApplyNumberAction(num);
         
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         UpdateEvent?.Invoke();
     }
@@ -120,11 +120,11 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyDecimalAction()
     {
-        _resultStrStateMachine.ApplyDecimalAction();
+        ResultStrStateMachine.ApplyDecimalAction();
         CurrentCalculatorState.ApplyDecimalAction();
         
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         UpdateEvent?.Invoke();
     }
@@ -134,11 +134,11 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyDeleteResultStrAction()
     {
-        _resultStrStateMachine.ApplyDeleteResultStrAction();
+        ResultStrStateMachine.ApplyDeleteResultStrAction();
         CurrentCalculatorState.ApplyDeleteResultStrAction();
         
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         UpdateEvent?.Invoke();
     }
@@ -148,11 +148,11 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplySignAction()
     {
-        _resultStrStateMachine.ApplySignAction();
+        ResultStrStateMachine.ApplySignAction();
         CurrentCalculatorState.ApplySignAction();
         
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         UpdateEvent?.Invoke();
     }
@@ -162,14 +162,14 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplySqrtAction()
     {
-        _resultStrStateMachine.ApplySqrtAction();
+        ResultStrStateMachine.ApplySqrtAction();
         CurrentCalculatorState.ApplySqrtAction();
         
         // apply
-        ResultStr = _resultStrStateMachine.ResultStr;
+        ResultStr = ResultStrStateMachine.ResultStr;
         
         // clean up
-        _resultStrStateMachine.ReInit(); 
+        ResultStrStateMachine.ReInit(); 
         
         UpdateEvent?.Invoke();
     }
@@ -179,7 +179,7 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyCleanResultStr()
     {
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         CurrentCalculatorState.ApplyCleanResultStr();
         
         // apply
@@ -193,7 +193,7 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyMultiplyAction()
     {
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         CurrentCalculatorState.ApplyMultiplyAction();
         
         UpdateEvent?.Invoke();
@@ -204,7 +204,7 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyDivideAction()
     {
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         CurrentCalculatorState.ApplyDivideAction();
         
         UpdateEvent?.Invoke();
@@ -215,7 +215,7 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyPlusAction()
     {
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         CurrentCalculatorState.ApplyPlusAction();
         
         UpdateEvent?.Invoke();
@@ -226,7 +226,7 @@ public class Calculator : StateMachine, ICalculator
     /// </summary>
     public void ApplyMinusAction()
     {
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         CurrentCalculatorState.ApplyMinusAction();
         
         UpdateEvent?.Invoke();
@@ -262,8 +262,10 @@ public class Calculator : StateMachine, ICalculator
         
         CurrentCalculatorState.ApplyLeftParentheses();
         
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         ResultStr = StringConst.LeftParentheses;
+
+        UpdateEvent?.Invoke();
     }
 
     /// <summary>
@@ -278,10 +280,12 @@ public class Calculator : StateMachine, ICalculator
         EquationStrElements[^1] = StringConst.RightParentheses;
         EquationStrElements.Add(string.Empty);
         
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         ResultStr = StringConst.RightParentheses;
         
         CurrentCalculatorState.ApplyRightParentheses();
+
+        UpdateEvent?.Invoke();
     }
 
     /// <summary>
@@ -300,7 +304,7 @@ public class Calculator : StateMachine, ICalculator
     private void CleanUpStateAndUi()
     {
         // clean up
-        _resultStrStateMachine.ReInit();
+        ResultStrStateMachine.ReInit();
         EquationController = new EquationController();
         ChangeState(new ConstructNumberState(this));
         

@@ -3,7 +3,7 @@ using calculator;
 namespace winform_calculator.Buttons;
 
 /// <summary>
-/// Button handle of button zero
+/// Button handle of button decimal action
 /// </summary>
 public class MyDecimalButton : Button, IMyButton
 {

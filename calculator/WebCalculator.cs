@@ -69,7 +69,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when zero action
     /// </summary>
     public void ApplyZeroAction()
     {
@@ -81,7 +81,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when number action
     /// </summary>
     public void ApplyNumberAction(int num)
     {
@@ -93,7 +93,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when decimal action
     /// </summary>
     public void ApplyDecimalAction()
     {
@@ -105,7 +105,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when delete result string action
     /// </summary>
     public void ApplyDeleteResultStrAction()
     {
@@ -117,7 +117,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when clean result string action
     /// </summary>
     public void ApplyCleanResultStr()
     {
@@ -129,7 +129,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when sign action
     /// </summary>
     public void ApplySignAction()
     {
@@ -141,7 +141,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when sqrt action
     /// </summary>
     public void ApplySqrtAction()
     {
@@ -153,7 +153,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when multiply action
     /// </summary>
     public void ApplyMultiplyAction()
     {
@@ -165,7 +165,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when divide action
     /// </summary>
     public void ApplyDivideAction()
     {
@@ -177,7 +177,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when plus action
     /// </summary>
     public void ApplyPlusAction()
     {
@@ -189,7 +189,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when minus action
     /// </summary>
     public void ApplyMinusAction()
     {
@@ -201,7 +201,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when equal action
     /// </summary>
     public void ApplyEqualAction()
     {
@@ -213,7 +213,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when left parentheses action
     /// </summary>
     public void ApplyLeftParentheses()
     {
@@ -225,7 +225,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when right parentheses action
     /// </summary>
     public void ApplyRightParentheses()
     {
@@ -237,7 +237,7 @@ public class WebCalculator : ICalculator
     }
 
     /// <summary>
-    /// call backend when action
+    /// call backend when clean all action
     /// </summary>
     public void ApplyCleanAll()
     {

@@ -3,7 +3,7 @@ using calculator;
 namespace winform_calculator.Buttons;
 
 /// <summary>
-/// Button handle of button zero
+/// Button handle of button 1
 /// </summary>
 public class MyButton1 : Button, IMyButton
 {

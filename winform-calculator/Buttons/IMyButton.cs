@@ -3,7 +3,7 @@
 namespace winform_calculator.Buttons
 {
     /// <summary>
-    /// my button to polymophy
+    /// my button to polymorphism
     /// </summary>
     internal interface IMyButton
     {

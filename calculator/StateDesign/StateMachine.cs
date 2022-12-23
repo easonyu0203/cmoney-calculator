@@ -40,5 +40,9 @@ public abstract class StateMachine
         StateChangedEvent?.Invoke(CurrentState);
     }
 
+    /// <summary>
+    /// get init state
+    /// </summary>
+    /// <returns>initial state</returns>
     protected abstract State GetInitState();
 }

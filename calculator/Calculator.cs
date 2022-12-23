@@ -294,6 +294,9 @@ public class Calculator : StateMachine, ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// clean up all the state context ui of calculator
+    /// </summary>
     private void CleanUpStateAndUi()
     {
         // clean up

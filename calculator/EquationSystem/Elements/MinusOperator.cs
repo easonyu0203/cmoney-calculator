@@ -1,12 +1,14 @@
-using calculator.EquationSystem.Elements;
-
-namespace calculator.EquationSystem;
+namespace calculator.EquationSystem.Elements;
 
 /// <summary>
 /// operator is binary operator
 /// </summary>
 public class MinusOperator : Node
 {
+    /// <summary>
+    /// calculate left - right 
+    /// </summary>
+    /// <returns>left - right </returns>
     public override decimal CalculateValue()
     {
         return Left!.CalculateValue() - Right!.CalculateValue();

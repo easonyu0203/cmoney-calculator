@@ -12,11 +12,11 @@ public class CalculatorManager
     /// <summary>
     /// contain all calculaotr
     /// </summary>
-    private Dictionary<Guid, Calculator> _calculators;
+    private Dictionary<Guid, Calculator> Calculators;
 
     public CalculatorManager()
     {
-        _calculators = new Dictionary<Guid, Calculator>();
+        Calculators = new Dictionary<Guid, Calculator>();
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ public class CalculatorManager
         Guid guid = Guid.NewGuid();
         Calculator calculator = new Calculator();
         calculator.Init();
-        _calculators.Add(guid, calculator);
+        Calculators.Add(guid, calculator);
         return guid;
     }
 
@@ -39,7 +39,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyZeroAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyZeroAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -52,7 +52,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyNumberAction(Guid guid, int num)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyNumberAction(num);
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -64,7 +64,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyDecimalAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyDecimalAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -76,7 +76,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyDeleteResultStrAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyDeleteResultStrAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -88,7 +88,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyCleanResultStr(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyCleanResultStr();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -100,7 +100,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplySignAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplySignAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -112,7 +112,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplySqrtAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplySqrtAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -124,7 +124,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyMultiplyAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyMultiplyAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -135,7 +135,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyDivideAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyDivideAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -146,7 +146,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyPlusAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyPlusAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -157,7 +157,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyMinusAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyMinusAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -169,7 +169,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyEqualAction(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyEqualAction();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -181,7 +181,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyLeftParentheses(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyLeftParentheses();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -193,7 +193,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyRightParentheses(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyRightParentheses();
         return Utilities.GetCalculatorContext(calculator);
     }
@@ -206,7 +206,7 @@ public class CalculatorManager
     /// <returns>context of calculator</returns>
     public CalculatorContext ApplyCleanAll(Guid guid)
     {
-        Calculator calculator = _calculators[guid];
+        Calculator calculator = Calculators[guid];
         calculator.ApplyCleanAll();
         return Utilities.GetCalculatorContext(calculator);
     }

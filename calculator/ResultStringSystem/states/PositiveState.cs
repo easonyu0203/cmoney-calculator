@@ -2,18 +2,16 @@ using calculator.state_machine;
 
 namespace calculator.ResultStringSystem.states;
 
-
 /// <summary>
 /// state enter when result value is negative
 /// </summary>
 public class PositiveState : ResultStrState
 {
-
     public PositiveState(string resultStr, StateMachine stateMachine) : base(
         resultStr, stateMachine)
     {
     }
-    
+
     /// <summary>
     /// apply zero action
     /// </summary>
@@ -52,9 +50,8 @@ public class PositiveState : ResultStrState
     public override void ApplySignAction()
     {
         _stateMachine.ChangeState(new NegativeState($"-{ResultStr}", _stateMachine));
-        
     }
-    
+
     /// <summary>
     /// perform sqrt action
     /// </summary>

@@ -47,6 +47,11 @@ namespace winform_calculator
             EqualButton.Click += OnMyClick;
         }
 
+        /// <summary>
+        /// on button press
+        /// </summary>
+        /// <param name="sender">sender button</param>
+        /// <param name="e">event args</param>
         private void OnMyClick(object? sender, EventArgs e)
         {
             ((IMyButton)sender).OnPress(Calculator);

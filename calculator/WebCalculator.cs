@@ -16,22 +16,27 @@ public class WebCalculator : ICalculator
     /// when update
     /// </summary>
     public Action? UpdateEvent { get; set; }
+
     /// <summary>
     /// result string
     /// </summary>
     public string ResultStr { get; private set; }
+
     /// <summary>
     /// equation string
     /// </summary>
     public string EquationStr { get; private set; }
+
     /// <summary>
     /// preorder string
     /// </summary>
     public string PreOrderStr { get; private set; }
+
     /// <summary>
     /// inorder string
     /// </summary>
     public string InOrderStr { get; private set; }
+
     /// <summary>
     /// postorder string
     /// </summary>
@@ -63,6 +68,9 @@ public class WebCalculator : ICalculator
     {
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyZeroAction()
     {
         HttpRequestMessage requestMessage =
@@ -72,6 +80,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyNumberAction(int num)
     {
         HttpRequestMessage requestMessage =
@@ -81,6 +92,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyDecimalAction()
     {
         HttpRequestMessage requestMessage =
@@ -90,6 +104,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyDeleteResultStrAction()
     {
         HttpRequestMessage requestMessage =
@@ -99,6 +116,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyCleanResultStr()
     {
         HttpRequestMessage requestMessage =
@@ -108,6 +128,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplySignAction()
     {
         HttpRequestMessage requestMessage =
@@ -117,6 +140,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplySqrtAction()
     {
         HttpRequestMessage requestMessage =
@@ -126,6 +152,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyMultiplyAction()
     {
         HttpRequestMessage requestMessage =
@@ -135,6 +164,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyDivideAction()
     {
         HttpRequestMessage requestMessage =
@@ -144,6 +176,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyPlusAction()
     {
         HttpRequestMessage requestMessage =
@@ -153,6 +188,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyMinusAction()
     {
         HttpRequestMessage requestMessage =
@@ -162,6 +200,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyEqualAction()
     {
         HttpRequestMessage requestMessage =
@@ -171,6 +212,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyLeftParentheses()
     {
         HttpRequestMessage requestMessage =
@@ -180,6 +224,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyRightParentheses()
     {
         HttpRequestMessage requestMessage =
@@ -189,6 +236,9 @@ public class WebCalculator : ICalculator
         UpdateEvent?.Invoke();
     }
 
+    /// <summary>
+    /// call backend when action
+    /// </summary>
     public void ApplyCleanAll()
     {
         HttpRequestMessage requestMessage =

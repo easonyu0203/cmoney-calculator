@@ -5,13 +5,43 @@ namespace calculator;
 /// </summary>
 public static class StringConst
 {
+    /// <summary>
+    /// plus
+    /// </summary>
     public static readonly string PlusStr = "+";
-    public static readonly string MinusStr = "-";
-    public static readonly string MultiplyStr = "x";
-    public static readonly string DivideStr = "/";
-    public static readonly string ZeroStr = "0";
-    public static readonly string LeftParentheses = "(";
-    public static readonly string RightParentheses = ")";
-    public static readonly string Equal = "=";
 
+    /// <summary>
+    /// minus
+    /// </summary>
+    public static readonly string MinusStr = "-";
+
+    /// <summary>
+    /// multiply
+    /// </summary>
+    public static readonly string MultiplyStr = "x";
+
+    /// <summary>
+    /// divide
+    /// </summary>
+    public static readonly string DivideStr = "/";
+
+    /// <summary>
+    /// zero
+    /// </summary>
+    public static readonly string ZeroStr = "0";
+
+    /// <summary>
+    /// left parentheses
+    /// </summary>
+    public static readonly string LeftParentheses = "(";
+
+    /// <summary>
+    /// right parentheses
+    /// </summary>
+    public static readonly string RightParentheses = ")";
+
+    /// <summary>
+    /// equal
+    /// </summary>
+    public static readonly string Equal = "=";
 }

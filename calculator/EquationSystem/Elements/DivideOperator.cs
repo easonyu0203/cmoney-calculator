@@ -5,6 +5,10 @@ namespace calculator.EquationSystem.Elements;
 /// </summary>
 public class DivideOperator : Node
 {
+    /// <summary>
+    /// calculate left / right 
+    /// </summary>
+    /// <returns>left / right </returns>
     public override decimal CalculateValue()
     {
         return Left!.CalculateValue() / Right!.CalculateValue();

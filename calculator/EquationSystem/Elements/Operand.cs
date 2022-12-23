@@ -2,11 +2,11 @@ namespace calculator.EquationSystem.Elements;
 
 public class Operand : Node
 {
-    private readonly decimal _value;
+    private readonly decimal Value;
 
     public Operand(decimal value)
     {
-        _value = value;
+        Value = value;
     }
 
     /// <summary>
@@ -15,7 +15,7 @@ public class Operand : Node
     /// <returns>value</returns>
     public override decimal CalculateValue()
     {
-        return _value;
+        return Value;
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ public class Operand : Node
     /// <returns>string representation of value </returns>
     public override string ToString()
     {
-        return $"{_value}";
+        return $"{Value}";
     }
     
     

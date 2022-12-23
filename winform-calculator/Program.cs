@@ -2,6 +2,9 @@ using calculator;
 
 namespace winform_calculator
 {
+    /// <summary>
+    /// main program
+    /// </summary>
     internal static class Program
     {
         /// <summary>

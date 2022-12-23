@@ -3,11 +3,11 @@
 using calculator;
 
 
-ICalculator calculator = new WebCalculator();
+ICalculator calculator = new Calculator();
 calculator.Init();
 
 
-ICalculator calculator2 = new WebCalculator();
+ICalculator calculator2 = new Calculator();
 calculator2.Init();
 
 calculator.ApplyLeftParentheses();

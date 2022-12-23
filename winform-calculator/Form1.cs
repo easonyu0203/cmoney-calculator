@@ -1,7 +1,6 @@
 using calculator;
 using System;
 using web_protocol;
-using winform_calculator.Buttons;
 
 namespace winform_calculator
 {
@@ -10,8 +9,13 @@ namespace winform_calculator
     /// </summary>
     public partial class Form1 : Form
     {
-
+        /// <summary>
+        /// http client to communicate with server
+        /// </summary>
         private HttpClient HttpClient;
+        /// <summary>
+        /// guid of the calculator
+        /// </summary>
         private Guid Guid;
 
         public Form1()

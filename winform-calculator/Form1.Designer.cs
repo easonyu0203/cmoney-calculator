@@ -1,5 +1,4 @@
-﻿using winform_calculator.Buttons;
-
+﻿
 namespace winform_calculator
 {
     partial class Form1
@@ -54,7 +53,7 @@ namespace winform_calculator
             this.button1 = new System.Windows.Forms.Button();
             this.EqualButton = new System.Windows.Forms.Button();
             this.DecimalButton = new System.Windows.Forms.Button();
-            this.Button0 = new winform_calculator.Buttons.MyButton0();
+            this.Button0 = new System.Windows.Forms.Button();
             this.SignButton = new System.Windows.Forms.Button();
             this.PostTextBox = new System.Windows.Forms.TextBox();
             this.InTextBox = new System.Windows.Forms.TextBox();

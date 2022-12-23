@@ -20,6 +20,30 @@ namespace winform_calculator
 
             HttpClient = new HttpClient();
             Guid = ServerEndpoint.CreateRequest(HttpClient);
+            
+            Button0.Tag = (object)ServerEndpoint.ZeroUrl  + $"/{Guid}";
+            button1.Tag = (object)ServerEndpoint.NumberUrl  + $"/1/{Guid}";
+            button2.Tag = (object)ServerEndpoint.NumberUrl  + $"/2/{Guid}";
+            button3.Tag = (object)ServerEndpoint.NumberUrl  + $"/3/{Guid}";
+            button4.Tag = (object)ServerEndpoint.NumberUrl  + $"/4/{Guid}";
+            button5.Tag = (object)ServerEndpoint.NumberUrl  + $"/5/{Guid}";
+            button6.Tag = (object)ServerEndpoint.NumberUrl  + $"/6/{Guid}";
+            button7.Tag = (object)ServerEndpoint.NumberUrl  + $"/7/{Guid}";
+            button8.Tag = (object)ServerEndpoint.NumberUrl  + $"/8/{Guid}";
+            button9.Tag = (object)ServerEndpoint.NumberUrl  + $"/9/{Guid}";
+            SignButton.Tag = (object)ServerEndpoint.SignUrl  + $"/{Guid}";
+            SqrtButton.Tag = (object)ServerEndpoint.SqrtUrl  + $"/{Guid}";
+            PlusButton.Tag = (object)ServerEndpoint.PlusUrl  + $"/{Guid}";
+            MinusButton.Tag = (object)ServerEndpoint.MinusUrl  + $"/{Guid}";
+            MultiplyButton.Tag = (object)ServerEndpoint.MultiplyUrl  + $"/{Guid}";
+            DivideButton.Tag = (object)ServerEndpoint.DivideUrl  + $"/{Guid}";
+            DeleteButton.Tag = (object)ServerEndpoint.DeleteResultStrUrl  + $"/{Guid}";
+            CEButton.Tag = (object)ServerEndpoint.CleanResultStrUrl  + $"/{Guid}";
+            CButton.Tag = (object)ServerEndpoint.CleanAllUrl  + $"/{Guid}";
+            DecimalButton.Tag = (object)ServerEndpoint.DecimalUrl  + $"/{Guid}";
+            EqualButton.Tag = (object)ServerEndpoint.EqualUrl  + $"/{Guid}";
+            LeftButton.Tag = (object)ServerEndpoint.LeftParenthesesUrl  + $"/{Guid}";
+            RightButton.Tag = (object)ServerEndpoint.RightParenthesesUrl  + $"/{Guid}";
 
             Button0.Click += OnMyClick;
             button1.Click += OnMyClick;
@@ -55,7 +79,6 @@ namespace winform_calculator
         {
             Button button = ((Button)sender);
             string url = (string)button.Tag;
-            url += $"/{Guid}";
 
             HttpRequestMessage requestMessage =
     new HttpRequestMessage(HttpMethod.Post, url);

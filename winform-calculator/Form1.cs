@@ -25,7 +25,7 @@ namespace winform_calculator
                 PreTextBox.Text = Calculator.PreOrderStr;
                 InTextBox.Text = Calculator.InOrderStr;
                 PostTextBox.Text = Calculator.PostOrderStr;
-            };
+            }; 
 
             Button0.Click += OnMyClick;
             button1.Click += OnMyClick;

@@ -81,8 +81,8 @@ namespace winform_calculator
         /// <param name="e">event args</param>
         private void OnMyClick(object? sender, EventArgs e)
         {
-            Button button = ((Button)sender);
-            string url = (string)button.Tag;
+            Button? button = sender as Button;
+            string url = (string)button!.Tag;
 
             HttpRequestMessage requestMessage =
     new HttpRequestMessage(HttpMethod.Post, url);
